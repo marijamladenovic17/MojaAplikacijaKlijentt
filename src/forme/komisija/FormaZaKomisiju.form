@@ -63,16 +63,19 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbIzmenaKartonaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem6">
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="cbIzracunajPoene">
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Kreiranje rang liste"/>
+                <Property name="text" type="java.lang.String" value="Izracunaj poene"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbIzracunajPoeneActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem7">
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Izmena rang liste"/>
+                <Property name="text" type="java.lang.String" value="Kreiranje rang liste"/>
               </Properties>
             </MenuItem>
           </SubComponents>

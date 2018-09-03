@@ -47,7 +47,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         cbSpajanjeKartona = new javax.swing.JCheckBoxMenuItem();
         cbPretraga = new javax.swing.JCheckBoxMenuItem();
         cbIzmenaKartona = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem6 = new javax.swing.JCheckBoxMenuItem();
+        cbIzracunajPoene = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem7 = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,12 +121,17 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         });
         jMenu1.add(cbIzmenaKartona);
 
-        jCheckBoxMenuItem6.setSelected(true);
-        jCheckBoxMenuItem6.setText("Kreiranje rang liste");
-        jMenu1.add(jCheckBoxMenuItem6);
+        cbIzracunajPoene.setSelected(true);
+        cbIzracunajPoene.setText("Izracunaj poene");
+        cbIzracunajPoene.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbIzracunajPoeneActionPerformed(evt);
+            }
+        });
+        jMenu1.add(cbIzracunajPoene);
 
         jCheckBoxMenuItem7.setSelected(true);
-        jCheckBoxMenuItem7.setText("Izmena rang liste");
+        jCheckBoxMenuItem7.setText("Kreiranje rang liste");
         jMenu1.add(jCheckBoxMenuItem7);
 
         jMenuBar1.add(jMenu1);
@@ -193,6 +198,17 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_cbIzmenaKartonaActionPerformed
 
+    private void cbIzracunajPoeneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIzracunajPoeneActionPerformed
+        // TODO add your handling code here:
+        KlijentskiZahtev kz = new KlijentskiZahtev();
+        kz.setOperacija(Operacije.IZRACUNAJ_POENE);
+        KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
+        ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
+        
+        JOptionPane.showMessageDialog(this, so.getPoruka());
+        return;
+    }//GEN-LAST:event_cbIzracunajPoeneActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -230,12 +246,12 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem cbIzmenaKartona;
+    private javax.swing.JCheckBoxMenuItem cbIzracunajPoene;
     private javax.swing.JCheckBoxMenuItem cbPretraga;
     private javax.swing.JCheckBoxMenuItem cbSpajanjeKartona;
     private javax.swing.JCheckBoxMenuItem cbVerifikacija;
     private javax.swing.JCheckBoxMenuItem cbmUnosKartona;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem6;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
