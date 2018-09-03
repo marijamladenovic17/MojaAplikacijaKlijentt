@@ -7,6 +7,7 @@ package forme.komisija;
 
 import domen.Kandidat;
 import domen.Karton;
+import domen.PomocIzmena;
 import domen.Zadatak;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ import transfer.ServerskiOdgovor;
  * @author PC
  */
 public class FormaIzmenaKartona extends javax.swing.JFrame {
+    
+    int kartonID;
 
     /**
      * Creates new form FormaIzmenaKartona
@@ -141,6 +144,11 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
         jLabel4.setText("Napomena: ukoliko izmenite odgovore, ponovo izracunajte ukupan broj poena kandidata!");
 
         btnIzmeniKarton.setText("Izmeni karton");
+        btnIzmeniKarton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIzmeniKartonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelDrugiLayout = new javax.swing.GroupLayout(PanelDrugi);
         PanelDrugi.setLayout(PanelDrugiLayout);
@@ -238,6 +246,7 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
         Karton karton = (Karton) so.getOdgovor();
         if(karton!=null){
             Kandidat kand = karton.getKandidat();
+            kartonID = karton.getKartonID();
             if(kand==null){
                 lblSifraPrijave.setText("Karton jos uvek nije spojen sa kandidatom!");
             }else{
@@ -259,6 +268,22 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
        }
 
     }//GEN-LAST:event_btnNadjiActionPerformed
+
+    private void btnIzmeniKartonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzmeniKartonActionPerformed
+        // TODO add your handling code here:
+        PomocIzmena pi = new PomocIzmena();
+        pi.setKratonId(kartonID);
+        ModelTabeleIzmenaKartona mtik = (ModelTabeleIzmenaKartona) tabelaZadaci.getModel();
+        pi.setZadaciZaIzmenu(mtik.getZadaciZaIzmenu());
+        
+        KlijentskiZahtev kz = new KlijentskiZahtev();
+        kz.setOperacija(Operacije.IZMENI_ZADATKE);
+        kz.setParametar(pi);
+        KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
+        ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
+        JOptionPane.showMessageDialog(this, so.getPoruka());
+        return;
+    }//GEN-LAST:event_btnIzmeniKartonActionPerformed
 
     /**
      * @param args the command line arguments

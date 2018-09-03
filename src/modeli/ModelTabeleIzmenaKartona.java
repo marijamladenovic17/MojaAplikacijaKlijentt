@@ -16,10 +16,12 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModelTabeleIzmenaKartona extends AbstractTableModel{
     ArrayList<Zadatak> zadaci;
+    ArrayList<Zadatak> zadaciZaIzmenu;
     FormaIzmenaKartona fik;
 
     public ModelTabeleIzmenaKartona() {
         zadaci = new ArrayList<>();
+        zadaciZaIzmenu = new ArrayList<>();
     }
     
     public ModelTabeleIzmenaKartona(FormaIzmenaKartona fik){
@@ -95,12 +97,17 @@ public class ModelTabeleIzmenaKartona extends AbstractTableModel{
                 if(o.charAt(0)=='A' || o.charAt(0)=='B'  || o.charAt(0)=='C'  || o.charAt(0)=='D' || o.charAt(0)=='E' || o.charAt(0)=='N' ){
                     r.setOdgovor(o.charAt(0));
                     zadaci.set(rowIndex, r);
+                    zadaciZaIzmenu.add(r);
                     fireTableDataChanged();
                   } else {
                     fik.obavesti();
                     return;
                 }
               
+    }
+
+    public ArrayList<Zadatak> getZadaciZaIzmenu() {
+        return zadaciZaIzmenu;
     }
     
     
