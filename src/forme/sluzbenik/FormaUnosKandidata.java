@@ -13,7 +13,12 @@ import domen.Nacionalnost;
 import domen.SrednjaSkola;
 import domen.ZanimanjeRoditelja;
 import java.awt.Toolkit;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import komunikacija.KomunikacijaSaServerom;
 import konstante.Operacije;
@@ -82,6 +87,8 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         cmbNacionalnost = new javax.swing.JComboBox();
         cmbSifraSkole = new javax.swing.JComboBox();
         btnGlavniMeni = new javax.swing.JButton();
+        txtPlus381 = new javax.swing.JTextField();
+        txtPlusFiksni = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         txtSifraPrijave = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -145,7 +152,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
 
         cmbSifraSkole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnGlavniMeni.setText("Glavni meni");
+        btnGlavniMeni.setText("Izadji");
         btnGlavniMeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGlavniMeniActionPerformed(evt);
@@ -170,11 +177,15 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtMobilniTel, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                                .addComponent(txtPlus381, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtMobilniTel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel12)
-                                .addGap(28, 28, 28)
-                                .addComponent(txtFixTel, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPlusFiksni, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(txtFixTel, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtPrezime, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtImeRoditelja, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtImeKandidata, javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +194,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addComponent(cmbDrzevljanstvo, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
@@ -261,7 +272,9 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(txtMobilniTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(txtFixTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFixTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPlus381, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPlusFiksni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUnesiKandidata, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,6 +342,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         String imeRoditelja = txtImeRoditelja.getText();
         String prezime = txtPrezime.getText();
         String pol;
+        
         if (zenskiPol == true) {
             pol = "Zenski";
         } else {
@@ -341,17 +355,25 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         String jmbg = txtJMBG.getText();
         String mobilni = txtMobilniTel.getText();
         String fiksni = txtFixTel.getText();
+        String plus381= txtPlus381.getText();
+        String plusF= txtPlusFiksni.getText();
         if (brojP.isEmpty() || ime.isEmpty() || imeRoditelja.isEmpty() || prezime.isEmpty() || pol.isEmpty() || drzevlj == null
-                || z == null || nac == null || ss == null || jmbg.isEmpty() || mobilni.isEmpty() || fiksni.isEmpty()) {
+                || z == null || nac == null || ss == null || jmbg.isEmpty() || mobilni.isEmpty() || fiksni.isEmpty() || plus381.isEmpty() || plusF.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Unesite sva polja!");
             return;
 
         }
-        System.out.println("pol" + pol);
-        String regex = "06[0,1,2,3,4,5,6,9]-[0-9]+";
+        
+        String regex = "[0-9]+";
 
         if (!mobilni.matches(regex)) {
-            JOptionPane.showMessageDialog(this, "Unesite broj mobilnog u formatu 06x-xxxxxxx!");
+            JOptionPane.showMessageDialog(this, "Unesite broj za polje mobilni telefon!");
+            return;
+        }
+        
+        regex = "'+'[0-9]";
+        if(plus381.matches(regex)){
+            JOptionPane.showMessageDialog(this, "Unesite pozivni broj u formatu +XXX!");
             return;
         }
         int brojPrijave = 0;
@@ -367,13 +389,58 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "JMBG ima 13 cifara!");
             return;
         }
+        String dan = jmbg.substring(0, 2);
         
-        regex = "01[0-9]/[0-9]+";
+        int d = Integer.parseInt(dan);
+        if(dan.equals("00")) {
+            JOptionPane.showMessageDialog(this, "Prve dve cifre JMBG-a predstavljaju dane u mesecu [1-31]!");
+            return;
+        }
+        if(d>31){
+            JOptionPane.showMessageDialog(this, "Prve dve cifre JMBG-a predstavljaju dane u mesecu [1-31]!");
+            return;
+        
+        }
+        String mesec = jmbg.substring(2, 4);
+        
+        int m = Integer.parseInt(mesec);
+        if(mesec.equals("00")) {
+            JOptionPane.showMessageDialog(this, "Treca i cetvrta cifra JMBG-a predstavljaju mesece u godini [1-12]!");
+            return;
+        }
+        if(m>12) {
+            JOptionPane.showMessageDialog(this, "Treca i cetvrta cifra JMBG-a predstavljaju mesece u godini [1-12]!");
+            return;
+        }
+        
+        String godina = jmbg.substring(4,8);
+        Date trenutni = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        String tre = sdf.format(trenutni).substring(6, 10);
+        
+        int g = Integer.parseInt(godina);
+        int t = Integer.parseInt(tre);
+        if(g<1900 || g>t ){
+            JOptionPane.showMessageDialog(this, "Peta, sesta, sedma i osma  cifra JMBG-a predstavljaju godinu od[1900-20XX]!");
+            return;
+        
+        }
+        
+        
+        
+        regex = "[0-9]+";
+        
         if(!fiksni.matches(regex)){
             JOptionPane.showMessageDialog(this, "Unesite fiksni telefon u formatu 01x/xxxxxxx");
             return;
         }
-        Kandidat kandidat = new Kandidat(brojP, jmbg, ime, imeRoditelja, pol, prezime, mobilni, fiksni, ss, nac, z, drzevlj);
+        regex = "'+'[0-9]";
+        
+        if(plusF.matches(regex)){
+             JOptionPane.showMessageDialog(this, "Unesite pozivni broj u formatu +XX");
+            return;
+        }
+        Kandidat kandidat = new Kandidat(brojP, jmbg, ime, imeRoditelja, pol, prezime, plus381+mobilni, plusF+fiksni, ss, nac, z, drzevlj);
         
         KlijentskiZahtev kz = new KlijentskiZahtev(Operacije.UNOS_KANDIDATA, kandidat);
         KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
@@ -454,6 +521,8 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
     private javax.swing.JTextField txtImeRoditelja;
     private javax.swing.JTextField txtJMBG;
     private javax.swing.JTextField txtMobilniTel;
+    private javax.swing.JTextField txtPlus381;
+    private javax.swing.JTextField txtPlusFiksni;
     private javax.swing.JTextField txtPrezime;
     private javax.swing.JTextField txtSifraPrijave;
     // End of variables declaration//GEN-END:variables

@@ -74,11 +74,15 @@
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="txtMobilniTel" min="-2" pref="451" max="-2" attributes="0"/>
-                                  <EmptySpace pref="81" max="32767" attributes="0"/>
+                                  <Component id="txtPlus381" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtMobilniTel" min="-2" pref="349" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="txtFixTel" min="-2" pref="553" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtPlusFiksni" min="-2" pref="53" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="txtFixTel" min="-2" pref="413" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtPrezime" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtImeRoditelja" alignment="0" max="32767" attributes="0"/>
@@ -89,7 +93,7 @@
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       <Component id="cmbDrzevljanstvo" min="-2" pref="225" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="91" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -193,6 +197,8 @@
                       <Component id="txtMobilniTel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtFixTel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPlus381" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPlusFiksni" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="60" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -364,11 +370,15 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnGlavniMeni">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Glavni meni"/>
+            <Property name="text" type="java.lang.String" value="Izadji"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGlavniMeniActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtPlus381">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtPlusFiksni">
         </Component>
       </SubComponents>
     </Container>
