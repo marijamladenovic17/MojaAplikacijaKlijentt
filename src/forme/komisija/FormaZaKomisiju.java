@@ -5,6 +5,7 @@
  */
 package forme.komisija;
 
+import forme.FormaPrijaviSe;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import komunikacija.KomunikacijaSaServerom;
@@ -51,6 +52,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         jCheckBoxMenuItem7 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        cbLogOut = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,6 +145,16 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Komisija");
+
+        cbLogOut.setSelected(true);
+        cbLogOut.setText("Log out");
+        cbLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbLogOutActionPerformed(evt);
+            }
+        });
+        jMenu2.add(cbLogOut);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -218,6 +230,13 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         return;
     }//GEN-LAST:event_cbIzracunajPoeneActionPerformed
 
+    private void cbLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLogOutActionPerformed
+        // TODO add your handling code here:
+        FormaPrijaviSe fps = new FormaPrijaviSe();
+        fps.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cbLogOutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,6 +275,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem cbIzmenaKartona;
     private javax.swing.JCheckBoxMenuItem cbIzracunajPoene;
+    private javax.swing.JCheckBoxMenuItem cbLogOut;
     private javax.swing.JCheckBoxMenuItem cbPretraga;
     private javax.swing.JCheckBoxMenuItem cbSpajanjeKartona;
     private javax.swing.JCheckBoxMenuItem cbVerifikacija;

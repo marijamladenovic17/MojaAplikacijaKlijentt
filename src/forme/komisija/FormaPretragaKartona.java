@@ -23,6 +23,7 @@ import transfer.ServerskiOdgovor;
  * @author PC
  */
 public class FormaPretragaKartona extends javax.swing.JFrame {
+    Karton karton;
 
     /**
      * Creates new form FormaPretragaKartona
@@ -35,6 +36,7 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
         setSize(x, y);
         panelZaNestajanje.setVisible(false);
         panelZaNestajanje2.setVisible(false);
+        btnUnosCentralneKomisije.setVisible(false);
     }
 
     /**
@@ -71,6 +73,7 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
         lblTest2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaZadataka2 = new javax.swing.JTable();
+        btnUnosCentralneKomisije = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,7 +140,7 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(lblPrezime))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         panelZaNestajanjeLayout.setVerticalGroup(
             panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,17 +202,17 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lblTest2))
                             .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
-                                .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(lblIme2))
+                                .addGap(62, 62, 62)
+                                .addComponent(lblIme2)
                                 .addGap(28, 28, 28)
                                 .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPrezime2)
-                                    .addComponent(lblSifraPrijave2)))))
+                                    .addComponent(lblSifraPrijave2)))
+                            .addComponent(jLabel4)))
                     .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         panelZaNestajanje2Layout.setVerticalGroup(
             panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,19 +221,27 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                 .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIme2)
                     .addComponent(lblPrezime2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(28, 28, 28)
+                .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lblSifraPrijave2))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(lblGrupaZadataka2)
                     .addComponent(lblTest2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
+
+        btnUnosCentralneKomisije.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnUnosCentralneKomisije.setText("Unesi ispravan karton");
+        btnUnosCentralneKomisije.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUnosCentralneKomisijeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelGlavniLayout = new javax.swing.GroupLayout(panelGlavni);
         panelGlavni.setLayout(panelGlavniLayout);
@@ -239,9 +250,11 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
             .addGroup(panelGlavniLayout.createSequentialGroup()
                 .addGroup(panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGlavniLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addContainerGap()
                         .addComponent(panelZaNestajanje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnUnosCentralneKomisije)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panelZaNestajanje2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelGlavniLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -251,8 +264,9 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(btnNadjiKarton)
                         .addGap(51, 51, 51)
-                        .addComponent(btnNazad)))
-                .addGap(33, 33, 33))
+                        .addComponent(btnNazad)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelGlavniLayout.setVerticalGroup(
             panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,11 +277,17 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                     .addComponent(txtKartonskiBroj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNadjiKarton)
                     .addComponent(btnNazad))
-                .addGap(38, 38, 38)
                 .addGroup(panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelZaNestajanje2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelZaNestajanje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(panelGlavniLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelZaNestajanje2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelZaNestajanje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(panelGlavniLayout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(btnUnosCentralneKomisije, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -312,7 +332,12 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
         ArrayList<Karton> kartoni = (ArrayList<Karton>) so.getOdgovor();
         
         if(kartoni!=null){
-            Karton karton = kartoni.get(0);
+            btnUnosCentralneKomisije.setVisible(true);
+            karton = kartoni.get(0);
+            ArrayList<Zadatak> zadaciKartona = karton.getListaOdg();
+            Karton karton2 = kartoni.get(1);
+            ArrayList<Zadatak> zadaciKartona2 = karton2.getListaOdg();
+            
             Kandidat kand = karton.getKandidat();
             if(kand==null){
                 lblSifraPrijave.setText("Karton jos uvek nije spojen sa kandidatom!");
@@ -325,12 +350,10 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
             lblGrupaZadataka.setText(karton.getGrupaZadataka().getBrGrupe()+"");
             lblTest.setText(karton.getGrupaZadataka().getTest().getNazivTesta());
             
-            ArrayList<Zadatak> zadaciKartona = karton.getListaOdg();
             ModelTabelePretragaKartona mtr = new ModelTabelePretragaKartona();
             mtr.setZadaci(zadaciKartona);
             tabelaZadataka.setModel(mtr);
             
-            Karton karton2 = kartoni.get(1);
             Kandidat kand2 = karton.getKandidat();
             if(kand2==null){
                 lblSifraPrijave2.setText("Karton jos uvek nije spojen sa kandidatom!");
@@ -344,7 +367,6 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
             lblGrupaZadataka2.setText(karton2.getGrupaZadataka().getBrGrupe()+"");
             lblTest2.setText(karton2.getGrupaZadataka().getTest().getNazivTesta());
             
-            ArrayList<Zadatak> zadaciKartona2 = karton2.getListaOdg();
             ModelTabelePretragaKartona mtr2 = new ModelTabelePretragaKartona();
             mtr2.setZadaci(zadaciKartona2);
             tabelaZadataka2.setModel(mtr2);
@@ -357,6 +379,15 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnNadjiKartonActionPerformed
+
+    private void btnUnosCentralneKomisijeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnosCentralneKomisijeActionPerformed
+        // TODO add your handling code here:
+        FormaCentralnaKomisija fck = new FormaCentralnaKomisija();
+        fck.setKarton(karton);
+        fck.srediSve();
+        this.setVisible(false);
+        fck.setVisible(true);
+    }//GEN-LAST:event_btnUnosCentralneKomisijeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -397,6 +428,7 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNadjiKarton;
     private javax.swing.JButton btnNazad;
+    private javax.swing.JButton btnUnosCentralneKomisije;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

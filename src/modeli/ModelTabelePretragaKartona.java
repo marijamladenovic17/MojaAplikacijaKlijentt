@@ -7,6 +7,7 @@ package modeli;
 
 import domen.Zadatak;
 import java.util.ArrayList;
+import javax.swing.CellRendererPane;
 import javax.swing.table.AbstractTableModel;
 
 /**
