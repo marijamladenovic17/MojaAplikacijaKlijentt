@@ -9,6 +9,7 @@ import domen.Clan;
 import java.util.ArrayList;
 import komunikacija.KomunikacijaSaServerom;
 import konstante.Operacije;
+import niti.NitKomboClan;
 
 import transfer.KlijentskiZahtev;
 import transfer.ServerskiOdgovor;
@@ -25,7 +26,8 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
     public FormaZaUnosClanova(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        srediKombo();
+        NitKomboClan nit = new NitKomboClan(this);
+        nit.start();
     }
 
     /**
@@ -101,7 +103,7 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
         Clan clan = (Clan) cmbClanovi.getSelectedItem();
         FormaUnosKomisije fuk = (FormaUnosKomisije) getParent();
         fuk.dodajClana(clan);
-        this.dispose();
+        
     }//GEN-LAST:event_btnSacuvajActionPerformed
 
     /**
@@ -153,15 +155,51 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    private void srediKombo() {
+    public void srediKombo() {
         KlijentskiZahtev kz = new KlijentskiZahtev(Operacije.VRATI_CLANOVE, null);
         KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
         ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
         ArrayList<Clan> listac = (ArrayList<Clan>) so.getOdgovor();
         cmbClanovi.removeAllItems();
+        FormaUnosKomisije fuk = (FormaUnosKomisije) getParent();
+        ArrayList<Clan> lisC=  fuk.vratiList();
         
-        for (Clan clan : listac) {
+        if(lisC.size()==0){
+            for(Clan clan : listac){
+                 if(clan.getKomisijaID()==0) {
+//                   
             cmbClanovi.addItem(clan);
+//            
+            }
+            }
+        }else{
+            for(Clan clan : listac){
+                 if(clan.getKomisijaID()==0 && !lisC.contains(clan)) {
+//                   
+            cmbClanovi.addItem(clan);
+//            
+            }
         }
+//        
+//        for (Clan clan : listac) {
+//            if(lisC.size()==0){
+//                 if(clan.getKomisijaID()==0) {
+//                   
+//            cmbClanovi.addItem(clan);
+//            
+//            }
+//            }
+//            else if(!lisC.contains(clan)){
+//                 if(clan.getKomisijaID()==0) {
+//                   
+//            cmbClanovi.addItem(clan);
+//            
+//            }
+//             }
+//            
+//            
+//        }
     }
+    }
+
 }

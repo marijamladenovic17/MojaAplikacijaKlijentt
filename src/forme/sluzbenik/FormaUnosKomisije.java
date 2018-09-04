@@ -226,16 +226,7 @@ public class FormaUnosKomisije extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(this, "Morate uneti bar 2 clana komisije!");
                      return;
         }
-        for (int i = 0; i < listaC.size()-1; i++) {
-            for (int j = i+1; j < listaC.size(); j++) {
-                if(listaC.get(i).equals(listaC.get(j))) {
-                     JOptionPane.showMessageDialog(this, "Uneli ste istog clana dva puta!");
-                     return;
-                }
-                
-            }
-            
-        }
+        
         
         int komID = Integer.parseInt(id);
         Komisija kom = new Komisija(komID, username, pass, listaC);
@@ -417,6 +408,12 @@ public class FormaUnosKomisije extends javax.swing.JFrame {
         KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
         ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
         txtIDkom.setText(so.getOdgovor()+"");
+    }
+
+    ArrayList<Clan> vratiList() {
+       ModelTabeleKomisija mtk = (ModelTabeleKomisija) tabelaClanova.getModel();
+       ArrayList<Clan> lc = (ArrayList<Clan>) mtk.getClanovi();
+       return lc;
     }
 
 }

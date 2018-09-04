@@ -49,6 +49,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         cbIzmenaKartona = new javax.swing.JCheckBoxMenuItem();
         cbIzracunajPoene = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem7 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,6 +135,10 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         jCheckBoxMenuItem7.setSelected(true);
         jCheckBoxMenuItem7.setText("Kreiranje rang liste");
         jMenu1.add(jCheckBoxMenuItem7);
+
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("Izmena rang liste");
+        jMenu1.add(jCheckBoxMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -256,6 +261,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem cbVerifikacija;
     private javax.swing.JCheckBoxMenuItem cbmUnosKartona;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
