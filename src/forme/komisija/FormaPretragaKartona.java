@@ -11,10 +11,12 @@ import domen.Zadatak;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableColumn;
 import komunikacija.KomunikacijaSaServerom;
 import konstante.Operacije;
 
 import modeli.ModelTabelePretragaKartona;
+import pomoc.Boja;
 import transfer.KlijentskiZahtev;
 import transfer.ServerskiOdgovor;
 
@@ -23,6 +25,7 @@ import transfer.ServerskiOdgovor;
  * @author PC
  */
 public class FormaPretragaKartona extends javax.swing.JFrame {
+
     Karton karton;
 
     /**
@@ -212,7 +215,7 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                     .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         panelZaNestajanje2Layout.setVerticalGroup(
             panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,9 +255,9 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                     .addGroup(panelGlavniLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(panelZaNestajanje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(btnUnosCentralneKomisije)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(panelZaNestajanje2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelGlavniLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -285,7 +288,7 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                             .addComponent(panelZaNestajanje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(panelGlavniLayout.createSequentialGroup()
-                        .addGap(173, 173, 173)
+                        .addGap(178, 178, 178)
                         .addComponent(btnUnosCentralneKomisije, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -319,63 +322,80 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
 
     private void btnNadjiKartonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNadjiKartonActionPerformed
         // TODO add your handling code here:
-        String kb =txtKartonskiBroj.getText();
+        String kb = txtKartonskiBroj.getText();
         int kartonskiBroj = Integer.parseInt(kb);
 //       
         KlijentskiZahtev kz = new KlijentskiZahtev();
         kz.setParametar(kartonskiBroj);
         kz.setOperacija(Operacije.VRATI_KARTONE_PROVERA);
-        
+
         KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
-        
+
         ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
         ArrayList<Karton> kartoni = (ArrayList<Karton>) so.getOdgovor();
-        
-        if(kartoni!=null){
+
+        if (kartoni != null) {
             btnUnosCentralneKomisije.setVisible(true);
             karton = kartoni.get(0);
             ArrayList<Zadatak> zadaciKartona = karton.getListaOdg();
             Karton karton2 = kartoni.get(1);
             ArrayList<Zadatak> zadaciKartona2 = karton2.getListaOdg();
-            
+            int brojOdgovora = zadaciKartona.size();
+            int brojNeispravnih = 0;
+            for (int m = 0; m < brojOdgovora; m++) {
+                if (zadaciKartona.get(m).getOdgovor() != zadaciKartona2.get(m).getOdgovor()) {
+                    brojNeispravnih++;
+                }
+            }
+            int[] redniBrojevi = new int[brojNeispravnih];
+            int i = 0;
+            for (int m = 0; m < brojOdgovora; m++) {
+                if (zadaciKartona.get(m).getOdgovor() != zadaciKartona2.get(m).getOdgovor()) {
+                    redniBrojevi[i] = zadaciKartona.get(m).getRbZadatka() - 1;
+                    i++;
+                }
+            }
+
             Kandidat kand = karton.getKandidat();
-            if(kand==null){
+            if (kand == null) {
                 lblSifraPrijave.setText("Karton jos uvek nije spojen sa kandidatom!");
-            }else{
+            } else {
                 lblIme.setText(kand.getIme());
                 lblPrezime.setText(kand.getPrezime());
                 lblSifraPrijave.setText(kand.getSifraPrijave());
             }
             panelZaNestajanje.setVisible(true);
-            lblGrupaZadataka.setText(karton.getGrupaZadataka().getBrGrupe()+"");
+            lblGrupaZadataka.setText(karton.getGrupaZadataka().getBrGrupe() + "");
             lblTest.setText(karton.getGrupaZadataka().getTest().getNazivTesta());
-            
+
             ModelTabelePretragaKartona mtr = new ModelTabelePretragaKartona();
             mtr.setZadaci(zadaciKartona);
             tabelaZadataka.setModel(mtr);
-            
+            TableColumn col = tabelaZadataka.getColumnModel().getColumn(1);
+            col.setCellRenderer(new Boja(redniBrojevi));
+
             Kandidat kand2 = karton.getKandidat();
-            if(kand2==null){
+            if (kand2 == null) {
                 lblSifraPrijave2.setText("Karton jos uvek nije spojen sa kandidatom!");
-            }else{
+            } else {
                 lblIme2.setText(kand2.getIme());
                 lblPrezime2.setText(kand2.getPrezime());
                 lblSifraPrijave2.setText(kand2.getSifraPrijave());
             }
-            
+
             panelZaNestajanje2.setVisible(true);
-            lblGrupaZadataka2.setText(karton2.getGrupaZadataka().getBrGrupe()+"");
+            lblGrupaZadataka2.setText(karton2.getGrupaZadataka().getBrGrupe() + "");
             lblTest2.setText(karton2.getGrupaZadataka().getTest().getNazivTesta());
-            
+
             ModelTabelePretragaKartona mtr2 = new ModelTabelePretragaKartona();
             mtr2.setZadaci(zadaciKartona2);
             tabelaZadataka2.setModel(mtr2);
-        }else{
+            TableColumn col2 = tabelaZadataka2.getColumnModel().getColumn(1);
+            col2.setCellRenderer(new Boja(redniBrojevi));
+        } else {
             JOptionPane.showMessageDialog(this, "Kartoni sa takvim kratonskim brojevima ne postoje u bazi!");
             return;
-       }
-
-
+        }
 
 
     }//GEN-LAST:event_btnNadjiKartonActionPerformed
