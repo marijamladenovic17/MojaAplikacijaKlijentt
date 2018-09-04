@@ -114,10 +114,6 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
 
         PanelDrugi.setBackground(new java.awt.Color(153, 153, 153));
 
-        lblIme.setText("jLabel2");
-
-        lblPrezime.setText("jLabel2");
-
         jLabel2.setText("Sifra prijave:");
 
         lblSifraPrijave.setText("jLabel3");
