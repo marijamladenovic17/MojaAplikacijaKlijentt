@@ -51,7 +51,6 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         cbIzmenaKartona = new javax.swing.JCheckBoxMenuItem();
         cbIzracunajPoene = new javax.swing.JCheckBoxMenuItem();
         cbKreirajRangListu = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
         cbLogOut = new javax.swing.JCheckBoxMenuItem();
 
@@ -143,10 +142,6 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
             }
         });
         jMenu1.add(cbKreirajRangListu);
-
-        jCheckBoxMenuItem2.setSelected(true);
-        jCheckBoxMenuItem2.setText("Izmena rang liste");
-        jMenu1.add(jCheckBoxMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -254,7 +249,11 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(this, so.getPoruka());
         
-        
+        FormaRangLista frl = new FormaRangLista();
+        frl.setRl(rl);
+        frl.srediTabelu();
+        frl.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_cbKreirajRangListuActionPerformed
 
@@ -303,7 +302,6 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem cbVerifikacija;
     private javax.swing.JCheckBoxMenuItem cbmUnosKartona;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
