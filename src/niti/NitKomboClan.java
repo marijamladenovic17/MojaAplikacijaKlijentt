@@ -36,6 +36,10 @@ public class NitKomboClan extends Thread{
             
         }
     }
+
+    public void zatvoriNit() {
+        kraj = false;
+    }
  
     
     

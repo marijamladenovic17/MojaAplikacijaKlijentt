@@ -259,6 +259,7 @@ public class FormaUnosKomisije extends javax.swing.JFrame {
 
     private void btnGlavniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGlavniActionPerformed
        FormaZaSluzbenika fzs = new FormaZaSluzbenika();
+       
        fzs.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btnGlavniActionPerformed

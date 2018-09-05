@@ -285,6 +285,7 @@ public class UnosGrupeZadataka extends javax.swing.JFrame {
 
     private void srediTabelu() {
         ModelTabeleResenjaZadataka mtrs = new ModelTabeleResenjaZadataka();
+        mtrs.setUfz(this);
         tabelaZadataka.setModel(mtrs);
         Test t = (Test) cmbTest.getSelectedItem();
         if(t!=null) {
@@ -300,6 +301,16 @@ public class UnosGrupeZadataka extends javax.swing.JFrame {
             }
         }
         }
+    }
+
+    public void obavesti() {
+      JOptionPane.showMessageDialog(this, "Mozete uneti A, B, C, D, E ili N");
+      return;
+    }
+
+    public void obavestiLength() {
+        JOptionPane.showMessageDialog(this, "Mozete uneti samo jednu vrednost!");
+      return;
     }
 
 }

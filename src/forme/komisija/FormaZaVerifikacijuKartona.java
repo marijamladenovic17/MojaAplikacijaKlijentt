@@ -233,7 +233,9 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPronadjiActionPerformed
 
     private void btnIzadjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzadjiActionPerformed
-        dispose();
+        FormaZaKomisiju fzk = new FormaZaKomisiju();
+        fzk.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnIzadjiActionPerformed
 
     private void btnPronadjiKandidataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPronadjiKandidataActionPerformed

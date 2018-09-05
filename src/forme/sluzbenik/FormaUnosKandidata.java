@@ -413,18 +413,9 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
             return;
         }
         
-        String godina = jmbg.substring(4,8);
-        Date trenutni = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        String tre = sdf.format(trenutni).substring(6, 10);
         
-        int g = Integer.parseInt(godina);
-        int t = Integer.parseInt(tre);
-        if(g<1900 || g>t ){
-            JOptionPane.showMessageDialog(this, "Peta, sesta, sedma i osma  cifra JMBG-a predstavljaju godinu od[1900-20XX]!");
-            return;
         
-        }
+      
         
         
         

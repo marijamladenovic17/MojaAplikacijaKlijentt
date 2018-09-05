@@ -18,15 +18,15 @@ import javax.swing.table.AbstractTableModel;
 public class ModelTabeleResenjaZadataka extends AbstractTableModel {
 
     ArrayList<Resenje> listaResenja;
-    //UnosGrupeZadataka ufz = new UnosGrupeZadataka();
+    UnosGrupeZadataka ufz;
 
     public ModelTabeleResenjaZadataka() {
         listaResenja = new ArrayList<>();
     }
 
-//    public void setUfz(UnosGrupeZadataka ufz) {
-//        this.ufz = ufz;
-//    }
+    public void setUfz(UnosGrupeZadataka ufz) {
+        this.ufz = ufz;
+    }
     @Override
     public int getRowCount() {
         return listaResenja.size();
@@ -87,8 +87,18 @@ public class ModelTabeleResenjaZadataka extends AbstractTableModel {
                 break;
             case 1:
                 String odg = (String) aValue;
-                odg.toUpperCase();
-                r.setOdgovor(odg.charAt(1));
+                String o =odg.toUpperCase().trim();
+                if(o.length()>1){
+                     ufz.obavestiLength();
+                     return;
+                }
+                if(o.charAt(0)=='A' || o.charAt(0)=='B'  || o.charAt(0)=='C'  || o.charAt(0)=='D' || o.charAt(0)=='E' || o.charAt(0)=='N' ){
+                    r.setOdgovor(o.charAt(0));
+                    
+                  } else {
+                    ufz.obavesti();
+                    return;
+                }
                 //System.out.println("Unesen je!");
                 break;
         }

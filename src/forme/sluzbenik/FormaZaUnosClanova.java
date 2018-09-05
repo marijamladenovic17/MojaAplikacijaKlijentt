@@ -23,10 +23,11 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
     /**
      * Creates new form FormaZaUnosClanova
      */
+     NitKomboClan nit;
     public FormaZaUnosClanova(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        NitKomboClan nit = new NitKomboClan(this);
+        nit= new NitKomboClan(this);
         nit.start();
     }
 
@@ -43,6 +44,7 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
         btnSacuvaj = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         cmbClanovi = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,6 +61,13 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
 
         cmbClanovi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButton1.setText("Izadji");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -66,7 +75,10 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSacuvaj)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSacuvaj))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(48, 48, 48)
@@ -81,7 +93,9 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
                     .addComponent(jLabel3)
                     .addComponent(cmbClanovi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
-                .addComponent(btnSacuvaj)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSacuvaj)
+                    .addComponent(jButton1))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -105,6 +119,11 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
         fuk.dodajClana(clan);
         
     }//GEN-LAST:event_btnSacuvajActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        nit.zatvoriNit();
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +170,7 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSacuvaj;
     private javax.swing.JComboBox cmbClanovi;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
