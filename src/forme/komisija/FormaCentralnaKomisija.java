@@ -11,9 +11,11 @@ import domen.Zadatak;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableColumn;
 import komunikacija.KomunikacijaSaServerom;
 import konstante.Operacije;
 import modeli.ModelTabeleIzmenaKartona;
+import pomoc.Boja;
 import transfer.KlijentskiZahtev;
 import transfer.ServerskiOdgovor;
 
@@ -24,6 +26,7 @@ import transfer.ServerskiOdgovor;
 public class FormaCentralnaKomisija extends javax.swing.JFrame {
     int kartonID;
     Karton karton;
+    int[] redniBrojevi;
 
     /**
      * Creates new form FormaCentralnaKomisija
@@ -179,7 +182,12 @@ public class FormaCentralnaKomisija extends javax.swing.JFrame {
         PomocIzmena pi = new PomocIzmena();
         pi.setKratonId(kartonID);
         ModelTabeleIzmenaKartona mtik = (ModelTabeleIzmenaKartona) tabelaZadataka.getModel();
-        pi.setZadaciZaIzmenu(mtik.getZadaciZaIzmenu());
+        ArrayList<Zadatak> zadaciZaIzmenu = mtik.getZadaciZaIzmenu();
+        if(zadaciZaIzmenu.size()==0){
+            JOptionPane.showMessageDialog(this, "Morate prvo izmeniti karton!");
+            return;
+        }
+        pi.setZadaciZaIzmenu(zadaciZaIzmenu);
         
         KlijentskiZahtev kz = new KlijentskiZahtev();
         kz.setOperacija(Operacije.IZMENI_ZADATKE);
@@ -228,6 +236,10 @@ public class FormaCentralnaKomisija extends javax.swing.JFrame {
     public void setKarton(Karton karton) {
         this.karton = karton;
     }
+
+    public void setRedniBrojevi(int[] redniBrojevi) {
+        this.redniBrojevi = redniBrojevi;
+    }
     
     
 
@@ -254,5 +266,7 @@ public class FormaCentralnaKomisija extends javax.swing.JFrame {
             ModelTabeleIzmenaKartona mtr = new ModelTabeleIzmenaKartona();
             mtr.setZadaci(zadaciKartona);
             tabelaZadataka.setModel(mtr);
+            TableColumn col = tabelaZadataka.getColumnModel().getColumn(1);
+            col.setCellRenderer(new Boja(redniBrojevi));
     }
 }

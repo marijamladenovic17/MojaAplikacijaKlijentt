@@ -27,6 +27,7 @@ import transfer.ServerskiOdgovor;
 public class FormaPretragaKartona extends javax.swing.JFrame {
 
     Karton karton;
+    int[] redniBrojevi;
 
     /**
      * Creates new form FormaPretragaKartona
@@ -347,7 +348,11 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                     brojNeispravnih++;
                 }
             }
-            int[] redniBrojevi = new int[brojNeispravnih];
+            
+            if(brojNeispravnih ==0){
+                btnUnosCentralneKomisije.setEnabled(false);
+            }
+            redniBrojevi = new int[brojNeispravnih];
             int i = 0;
             for (int m = 0; m < brojOdgovora; m++) {
                 if (zadaciKartona.get(m).getOdgovor() != zadaciKartona2.get(m).getOdgovor()) {
@@ -404,6 +409,7 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
         // TODO add your handling code here:
         FormaCentralnaKomisija fck = new FormaCentralnaKomisija();
         fck.setKarton(karton);
+        fck.setRedniBrojevi(redniBrojevi);
         fck.srediSve();
         this.setVisible(false);
         fck.setVisible(true);
