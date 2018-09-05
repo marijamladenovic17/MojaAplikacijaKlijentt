@@ -5,9 +5,9 @@
  */
 package modeli;
 
-import domen.Resenje;
 import domen.Zadatak;
-import forme.komisija.FormaUnosKartona;
+import forme.komisija.FormaCentralnaKomisija;
+import forme.komisija.FormaIzmenaKartona;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -15,24 +15,27 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author PC
  */
-public class ModelTabeleZadataka extends AbstractTableModel{
-    ArrayList<Zadatak> lz;
-    FormaUnosKartona fuk;
-    public ModelTabeleZadataka() {
-        lz = new ArrayList<>();
-    }
+public class ModelTabeleIzmenaOdCentralneKom extends AbstractTableModel{
+    ArrayList<Zadatak> zadaci;
+    ArrayList<Zadatak> zadaciZaIzmenu;
+    FormaCentralnaKomisija fck;
 
-    public ModelTabeleZadataka( FormaUnosKartona fuk) {
-        lz = new ArrayList<>();
-        this.fuk = fuk;
+    public ModelTabeleIzmenaOdCentralneKom() {
+        zadaci = new ArrayList<>();
+        zadaciZaIzmenu = new ArrayList<>();
     }
+    
+    public ModelTabeleIzmenaOdCentralneKom(FormaCentralnaKomisija fck){
+        
+        zadaci = new ArrayList<>();
+        this.fck = fck;
+    }
+    
+    
 
-    
-    
-    
     @Override
     public int getRowCount() {
-        return lz.size();
+        return zadaci.size();
     }
 
     @Override
@@ -42,19 +45,20 @@ public class ModelTabeleZadataka extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Zadatak r = lz.get(rowIndex);
+        Zadatak z = zadaci.get(rowIndex);
 
         switch (columnIndex) {
             case 0:
-                return r.getRbZadatka();
+                return z.getRbZadatka();
             case 1:
-                return r.getOdgovor();
+                return z.getOdgovor();
             default:
                 return "";
         }
     }
-    @Override
-    public String getColumnName(int column) {
+    
+    
+     public String getColumnName(int column) {
         switch (column) {
             case 0:
                 return "Redni broj zadatka";
@@ -65,51 +69,54 @@ public class ModelTabeleZadataka extends AbstractTableModel{
         }
     }
 
-    public void dodajResenje(int redBr, char odg) {
-        lz.add(new Zadatak(redBr, odg));
-        fireTableDataChanged();
-    }
-
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        if (columnIndex == 1) {
+          if (columnIndex == 1) {
             return true;
         }
         return false;
     }
 
-    @Override
+    public void setZadaci(ArrayList<Zadatak> zadaci) {
+        this.zadaci = zadaci;
+        fireTableDataChanged();
+    }
+
+    public ArrayList<Zadatak> getZadaci() {
+        return zadaci;
+    }
+    
+    
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Zadatak r = lz.get(rowIndex);
-        switch (columnIndex) {
-            case 0:
-                String br = (String) aValue;
-                int b = Integer.parseInt(br);
-                r.setRbZadatka(b);
-                break;
-            case 1:
+        Zadatak r = zadaci.get(rowIndex);
+       r.setRbZadatka(rowIndex + 1);
                 String odg = (String) aValue;
                 String o =odg.toUpperCase().trim();
                 if(o.length()>1){
-                     fuk.obavestiLength();
+                     fck.obavestiLength();
                      return;
                 }
                 if(o.charAt(0)=='A' || o.charAt(0)=='B'  || o.charAt(0)=='C'  || o.charAt(0)=='D' || o.charAt(0)=='E' || o.charAt(0)=='N' ){
                     r.setOdgovor(o.charAt(0));
-                    
+                    zadaci.set(rowIndex, r);
+                    zadaciZaIzmenu.add(r);
+                    fireTableDataChanged();
                   } else {
-                    fuk.obavesti();
+                    fck.obavesti();
                     return;
                 }
-                
-                //System.out.println("Unesen je!");
-                break;
-        }
-
+              
     }
 
-    public ArrayList<Zadatak> vraiResenja() {
-        return lz;
+    public ArrayList<Zadatak> getZadaciZaIzmenu() {
+        return zadaciZaIzmenu;
     }
+
+    public void setFck(FormaCentralnaKomisija fck) {
+        this.fck = fck;
+    }
+
+    
+    
     
 }

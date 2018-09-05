@@ -93,6 +93,7 @@ public class ModelTabeleIzmenaKartona extends AbstractTableModel{
                 String o =odg.toUpperCase().trim();
                 if(o.length()>1){
                      fik.obavestiLength();
+                     return;
                 }
                 if(o.charAt(0)=='A' || o.charAt(0)=='B'  || o.charAt(0)=='C'  || o.charAt(0)=='D' || o.charAt(0)=='E' || o.charAt(0)=='N' ){
                     r.setOdgovor(o.charAt(0));
@@ -108,6 +109,10 @@ public class ModelTabeleIzmenaKartona extends AbstractTableModel{
 
     public ArrayList<Zadatak> getZadaciZaIzmenu() {
         return zadaciZaIzmenu;
+    }
+
+    public void setFik(FormaIzmenaKartona fik) {
+        this.fik = fik;
     }
     
     

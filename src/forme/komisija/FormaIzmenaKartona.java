@@ -256,6 +256,7 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
             
             ArrayList<Zadatak> zadaciKartona = karton.getListaOdg();
             ModelTabeleIzmenaKartona mtr = new ModelTabeleIzmenaKartona();
+            mtr.setFik(this);
             mtr.setZadaci(zadaciKartona);
             tabelaZadaci.setModel(mtr);
         }else{
@@ -270,7 +271,12 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
         PomocIzmena pi = new PomocIzmena();
         pi.setKratonId(kartonID);
         ModelTabeleIzmenaKartona mtik = (ModelTabeleIzmenaKartona) tabelaZadaci.getModel();
-        pi.setZadaciZaIzmenu(mtik.getZadaciZaIzmenu());
+         ArrayList<Zadatak> zadaciZaIzmenu = mtik.getZadaciZaIzmenu();
+        if(zadaciZaIzmenu.size()==0){
+            JOptionPane.showMessageDialog(this, "Morate prvo izmeniti karton!");
+            return;
+        }
+        pi.setZadaciZaIzmenu(zadaciZaIzmenu);
         
         KlijentskiZahtev kz = new KlijentskiZahtev();
         kz.setOperacija(Operacije.IZMENI_ZADATKE);

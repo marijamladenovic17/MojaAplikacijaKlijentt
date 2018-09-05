@@ -15,6 +15,7 @@ import javax.swing.table.TableColumn;
 import komunikacija.KomunikacijaSaServerom;
 import konstante.Operacije;
 import modeli.ModelTabeleIzmenaKartona;
+import modeli.ModelTabeleIzmenaOdCentralneKom;
 import pomoc.Boja;
 import transfer.KlijentskiZahtev;
 import transfer.ServerskiOdgovor;
@@ -181,7 +182,7 @@ public class FormaCentralnaKomisija extends javax.swing.JFrame {
         // TODO add your handling code here:
         PomocIzmena pi = new PomocIzmena();
         pi.setKratonId(kartonID);
-        ModelTabeleIzmenaKartona mtik = (ModelTabeleIzmenaKartona) tabelaZadataka.getModel();
+        ModelTabeleIzmenaOdCentralneKom mtik = (ModelTabeleIzmenaOdCentralneKom) tabelaZadataka.getModel();
         ArrayList<Zadatak> zadaciZaIzmenu = mtik.getZadaciZaIzmenu();
         if(zadaciZaIzmenu.size()==0){
             JOptionPane.showMessageDialog(this, "Morate prvo izmeniti karton!");
@@ -263,10 +264,21 @@ public class FormaCentralnaKomisija extends javax.swing.JFrame {
             lblBrojKartona.setText(karton.getBrKartona()+"");
             
             ArrayList<Zadatak> zadaciKartona = karton.getListaOdg();
-            ModelTabeleIzmenaKartona mtr = new ModelTabeleIzmenaKartona();
+            ModelTabeleIzmenaOdCentralneKom mtr = new ModelTabeleIzmenaOdCentralneKom();
+            mtr.setFck(this);
             mtr.setZadaci(zadaciKartona);
             tabelaZadataka.setModel(mtr);
             TableColumn col = tabelaZadataka.getColumnModel().getColumn(1);
             col.setCellRenderer(new Boja(redniBrojevi));
+    }
+    
+    public void obavestiLength() {
+        JOptionPane.showMessageDialog(this, "Mozete uneti samo jednu vrednost!");
+      return;
+    }
+
+    public void obavesti() {
+         JOptionPane.showMessageDialog(this, "Mozete uneti A, B, C, D, E ili N");
+      return;
     }
 }
