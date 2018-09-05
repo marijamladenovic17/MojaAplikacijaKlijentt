@@ -5,6 +5,7 @@
  */
 package forme.komisija;
 
+import domen.Rang_Lista;
 import forme.FormaPrijaviSe;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
@@ -49,7 +50,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         cbPretraga = new javax.swing.JCheckBoxMenuItem();
         cbIzmenaKartona = new javax.swing.JCheckBoxMenuItem();
         cbIzracunajPoene = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem7 = new javax.swing.JCheckBoxMenuItem();
+        cbKreirajRangListu = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
         cbLogOut = new javax.swing.JCheckBoxMenuItem();
@@ -134,9 +135,14 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         });
         jMenu1.add(cbIzracunajPoene);
 
-        jCheckBoxMenuItem7.setSelected(true);
-        jCheckBoxMenuItem7.setText("Kreiranje rang liste");
-        jMenu1.add(jCheckBoxMenuItem7);
+        cbKreirajRangListu.setSelected(true);
+        cbKreirajRangListu.setText("Kreiranje rang liste");
+        cbKreirajRangListu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbKreirajRangListuActionPerformed(evt);
+            }
+        });
+        jMenu1.add(cbKreirajRangListu);
 
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("Izmena rang liste");
@@ -237,6 +243,21 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cbLogOutActionPerformed
 
+    private void cbKreirajRangListuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKreirajRangListuActionPerformed
+        // TODO add your handling code here:
+        KlijentskiZahtev kz = new KlijentskiZahtev();
+        kz.setOperacija(Operacije.NAPRAVI_RANG_LISTU);
+        KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
+        ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
+        
+        Rang_Lista rl = (Rang_Lista) so.getOdgovor();
+        
+        JOptionPane.showMessageDialog(this, so.getPoruka());
+        
+        
+        
+    }//GEN-LAST:event_cbKreirajRangListuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -275,6 +296,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem cbIzmenaKartona;
     private javax.swing.JCheckBoxMenuItem cbIzracunajPoene;
+    private javax.swing.JCheckBoxMenuItem cbKreirajRangListu;
     private javax.swing.JCheckBoxMenuItem cbLogOut;
     private javax.swing.JCheckBoxMenuItem cbPretraga;
     private javax.swing.JCheckBoxMenuItem cbSpajanjeKartona;
@@ -282,7 +304,6 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem cbmUnosKartona;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
