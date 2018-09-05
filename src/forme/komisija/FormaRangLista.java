@@ -118,6 +118,7 @@ public class FormaRangLista extends javax.swing.JFrame {
     private void btnNazadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNazadActionPerformed
         // TODO add your handling code here:
         FormaZaKomisiju fzk = new FormaZaKomisiju();
+        fzk.setPostojiRL(true);
         fzk.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNazadActionPerformed

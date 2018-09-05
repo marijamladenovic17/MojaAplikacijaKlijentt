@@ -19,6 +19,7 @@ import transfer.ServerskiOdgovor;
  * @author PC
  */
 public class FormaZaKomisiju extends javax.swing.JFrame {
+    boolean postojiRL;
 
     /**
      * Creates new form FormaZaKomisiju
@@ -29,6 +30,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         int x = (int) tk.getScreenSize().getWidth();
         int y = (int) tk.getScreenSize().getHeight();
         setSize(x, y);
+        postojiRL = false;
     }
 
     /**
@@ -240,6 +242,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
 
     private void cbKreirajRangListuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKreirajRangListuActionPerformed
         // TODO add your handling code here:
+        if(!postojiRL){
         KlijentskiZahtev kz = new KlijentskiZahtev();
         kz.setOperacija(Operacije.NAPRAVI_RANG_LISTU);
         KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
@@ -250,11 +253,15 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, so.getPoruka());
         
         FormaRangLista frl = new FormaRangLista();
+        postojiRL = true;
         frl.setRl(rl);
         frl.srediTabelu();
         frl.setVisible(true);
         this.setVisible(false);
-        
+        }else{
+            JOptionPane.showMessageDialog(this, "Rang lista vec postoji");
+            return;
+        }
     }//GEN-LAST:event_cbKreirajRangListuActionPerformed
 
     /**
@@ -291,6 +298,12 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
             }
         });
     }
+
+    public void setPostojiRL(boolean postojiRL) {
+        this.postojiRL = postojiRL;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem cbIzmenaKartona;
