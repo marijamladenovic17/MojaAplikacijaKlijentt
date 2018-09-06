@@ -292,7 +292,11 @@ public class FormaUnosKartona extends javax.swing.JFrame {
         GrupaZadatka gz = (GrupaZadatka) cmbGZ.getSelectedItem();
        ModelTabeleZadataka mtz = (ModelTabeleZadataka) tabelOdgovora.getModel();
        ArrayList<Zadatak> lz =mtz.vraiResenja();
-       
+       String regex = "[0-9]+";
+       if(brojKar.matches(regex)){
+            JOptionPane.showMessageDialog(this, "Unesite broj za polje broj KARTONA!");
+            return;
+       }
         int kartonID = Integer.parseInt(kid);
         int brojUnosa = Integer.parseInt(brUnosa);
         int brojKartona = Integer.parseInt(brojKar);

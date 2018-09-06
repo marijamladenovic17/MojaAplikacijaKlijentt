@@ -219,10 +219,16 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
 
     private void btnPronadjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPronadjiActionPerformed
         String sifraKart = txtxSifraKartona.getText();
+       
         if (sifraKart.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Unesite sifru kartona!");
             return;
         }
+         String regex = "[0-9]+";
+       if(sifraKart.matches(regex)){
+            JOptionPane.showMessageDialog(this, "Unesite broj za polje sifra KARTONA!");
+            return;
+       }
 
         KlijentskiZahtev kz = new KlijentskiZahtev(Operacije.VRATI_KARTON_UNOS_1, Integer.parseInt(sifraKart));
         KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
@@ -244,6 +250,8 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Unesite sifru prijave kandidata!");
             return;
         }
+        
+       
 
         KlijentskiZahtev kz = new KlijentskiZahtev(Operacije.VRATI_KANDIDATA, kand);
         KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
