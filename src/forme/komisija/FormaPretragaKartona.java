@@ -351,6 +351,9 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
             
             if(brojNeispravnih ==0){
                 btnUnosCentralneKomisije.setEnabled(false);
+            }else{
+                btnUnosCentralneKomisije.setEnabled(true);
+                
             }
             redniBrojevi = new int[brojNeispravnih];
             int i = 0;

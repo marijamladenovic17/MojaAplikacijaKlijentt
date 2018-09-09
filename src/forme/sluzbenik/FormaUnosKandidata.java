@@ -77,7 +77,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cmbDrzevljanstvo = new javax.swing.JComboBox();
+        cmbDrzavljanstvo = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
         txtMobilniTel = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -133,7 +133,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
 
         jLabel11.setText("Sifra srednje skole:");
 
-        cmbDrzevljanstvo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDrzavljanstvo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel10.setText("Mobilni:");
 
@@ -193,7 +193,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
-                                    .addComponent(cmbDrzevljanstvo, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cmbDrzavljanstvo, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -256,7 +256,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cmbDrzevljanstvo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbDrzavljanstvo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbNacionalnost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbSifraSkole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbSifraZanimanja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -348,7 +348,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         } else {
             pol = "Muski";
         }
-        Drzevljanstvo drzevlj = (Drzevljanstvo) cmbDrzevljanstvo.getSelectedItem();
+        Drzevljanstvo drzevlj = (Drzevljanstvo) cmbDrzavljanstvo.getSelectedItem();
         ZanimanjeRoditelja z = (ZanimanjeRoditelja) cmbSifraZanimanja.getSelectedItem();
         Nacionalnost nac = (Nacionalnost) cmbNacionalnost.getSelectedItem();
         SrednjaSkola ss = (SrednjaSkola) cmbSifraSkole.getSelectedItem();
@@ -487,7 +487,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
     private javax.swing.JButton btnGlavniMeni;
     private javax.swing.JButton btnUnesiKandidata;
     private javax.swing.ButtonGroup buttonGroupPol;
-    private javax.swing.JComboBox cmbDrzevljanstvo;
+    private javax.swing.JComboBox cmbDrzavljanstvo;
     private javax.swing.JComboBox cmbNacionalnost;
     private javax.swing.JComboBox cmbSifraSkole;
     private javax.swing.JComboBox cmbSifraZanimanja;
@@ -524,10 +524,10 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
         System.out.println("Primio");
         ArrayList<Drzevljanstvo> listaD = (ArrayList<Drzevljanstvo>) so.getOdgovor();
-        cmbDrzevljanstvo.removeAllItems();
+        cmbDrzavljanstvo.removeAllItems();
 
         for (Drzevljanstvo drzevljanstvo : listaD) {
-            cmbDrzevljanstvo.addItem(drzevljanstvo);
+            cmbDrzavljanstvo.addItem(drzevljanstvo);
         }
     }
 

@@ -7,6 +7,7 @@ package modeli;
 
 import domen.Zadatak;
 import forme.komisija.FormaIzmenaKartona;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -28,6 +29,7 @@ public class ModelTabeleIzmenaKartona extends AbstractTableModel{
         
         zadaci = new ArrayList<>();
         this.fik = fik;
+        
     }
     
     

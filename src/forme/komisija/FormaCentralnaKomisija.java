@@ -49,51 +49,21 @@ public class FormaCentralnaKomisija extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        lblBrojKartona = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lblGrupaZadataka = new javax.swing.JLabel();
-        btnSacuvajIzmene = new javax.swing.JButton();
-        btnNazad = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaZadataka = new javax.swing.JTable();
+        btnSacuvajIzmene = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        lblBrojKartona = new javax.swing.JLabel();
+        lblGrupaZadataka = new javax.swing.JLabel();
+        btnNazad = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("ISPRAVKA OD STRANE CENTRALNE KOMISIJE");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("Broj kartona: ");
-
-        lblBrojKartona.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblBrojKartona.setText("jLabel3");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setText("Grupa zadataka:");
-
-        lblGrupaZadataka.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblGrupaZadataka.setText("jLabel4");
-
-        btnSacuvajIzmene.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnSacuvajIzmene.setText("Sacuvaj izmene");
-        btnSacuvajIzmene.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSacuvajIzmeneActionPerformed(evt);
-            }
-        });
-
-        btnNazad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnNazad.setText("Nazad na glavnu formu");
-        btnNazad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNazadActionPerformed(evt);
-            }
-        });
+        jPanel2.setLayout(null);
 
         tabelaZadataka.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,64 +78,72 @@ public class FormaCentralnaKomisija extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaZadataka);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(120, 120, 120))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnNazad)
-                    .addComponent(btnSacuvajIzmene)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblGrupaZadataka))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(32, 32, 32)
-                        .addComponent(lblBrojKartona)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(lblBrojKartona))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(lblGrupaZadataka))
-                        .addGap(51, 51, 51)
-                        .addComponent(btnSacuvajIzmene)
-                        .addGap(34, 34, 34)
-                        .addComponent(btnNazad)
-                        .addGap(0, 152, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(310, 320, 452, 260);
+
+        btnSacuvajIzmene.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnSacuvajIzmene.setForeground(new java.awt.Color(153, 153, 153));
+        btnSacuvajIzmene.setText("Sacuvaj izmene");
+        btnSacuvajIzmene.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSacuvajIzmeneActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSacuvajIzmene);
+        btnSacuvajIzmene.setBounds(840, 330, 220, 40);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Broj kartona: ");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(330, 180, 126, 22);
+
+        lblBrojKartona.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel2.add(lblBrojKartona);
+        lblBrojKartona.setBounds(560, 142, 240, 60);
+
+        lblGrupaZadataka.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel2.add(lblGrupaZadataka);
+        lblGrupaZadataka.setBounds(560, 222, 230, 50);
+
+        btnNazad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnNazad.setForeground(new java.awt.Color(153, 153, 153));
+        btnNazad.setText("Nazad na glavnu formu");
+        btnNazad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNazadActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnNazad);
+        btnNazad.setBounds(840, 390, 217, 40);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Grupa zadataka:");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(330, 250, 149, 22);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("ISPRAVKA OD STRANE CENTRALNE KOMISIJE");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(330, 30, 554, 29);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(10, 0, 1900, 1020);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1898, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
         );
 
         pack();
@@ -250,7 +228,8 @@ public class FormaCentralnaKomisija extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBrojKartona;
     private javax.swing.JLabel lblGrupaZadataka;

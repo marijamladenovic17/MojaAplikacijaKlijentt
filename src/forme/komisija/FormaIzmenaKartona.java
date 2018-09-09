@@ -35,7 +35,7 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
         int x = tk.getScreenSize().width;
         int y = tk.getScreenSize().height;
         setSize(x, y);
-        PanelDrugi.setVisible(false);
+        panelDrugi.setVisible(false);
     }
 
     /**
@@ -48,81 +48,81 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
     private void initComponents() {
 
         PanelPrvi = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtKartonskiBroj = new javax.swing.JTextField();
         btnNadji = new javax.swing.JButton();
         btnNazad = new javax.swing.JButton();
-        PanelDrugi = new javax.swing.JPanel();
+        txtKartonskiBroj = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        panelDrugi = new javax.swing.JPanel();
         lblIme = new javax.swing.JLabel();
         lblPrezime = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        lblSifraPrijave = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lblGrupa = new javax.swing.JLabel();
         lblTest = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaZadaci = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         btnIzmeniKarton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblSifraPrijave = new javax.swing.JLabel();
+        lblGrupa = new javax.swing.JLabel();
+        labelaSlika = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PanelPrvi.setBackground(new java.awt.Color(153, 153, 153));
+        PanelPrvi.setBackground(new java.awt.Color(204, 204, 204));
+        PanelPrvi.setBorder(javax.swing.BorderFactory.createTitledBorder("Pretrazi karton"));
+        PanelPrvi.setLayout(null);
 
-        jLabel1.setText("Molimo unesite kartonski broj:");
-
+        btnNadji.setForeground(new java.awt.Color(102, 102, 102));
         btnNadji.setText("Nadji");
         btnNadji.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNadjiActionPerformed(evt);
             }
         });
+        PanelPrvi.add(btnNadji);
+        btnNadji.setBounds(540, 30, 90, 30);
 
+        btnNazad.setForeground(new java.awt.Color(102, 102, 102));
         btnNazad.setText("Nazad");
         btnNazad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNazadActionPerformed(evt);
             }
         });
+        PanelPrvi.add(btnNazad);
+        btnNazad.setBounds(660, 30, 90, 30);
 
-        javax.swing.GroupLayout PanelPrviLayout = new javax.swing.GroupLayout(PanelPrvi);
-        PanelPrvi.setLayout(PanelPrviLayout);
-        PanelPrviLayout.setHorizontalGroup(
-            PanelPrviLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelPrviLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(txtKartonskiBroj, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btnNadji)
-                .addGap(43, 43, 43)
-                .addComponent(btnNazad)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PanelPrviLayout.setVerticalGroup(
-            PanelPrviLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelPrviLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(PanelPrviLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtKartonskiBroj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNadji)
-                    .addComponent(btnNazad))
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
+        txtKartonskiBroj.setForeground(new java.awt.Color(102, 102, 102));
+        txtKartonskiBroj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtKartonskiBrojActionPerformed(evt);
+            }
+        });
+        PanelPrvi.add(txtKartonskiBroj);
+        txtKartonskiBroj.setBounds(230, 30, 190, 30);
 
-        PanelDrugi.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Molimo unesite kartonski broj:");
+        PanelPrvi.add(jLabel1);
+        jLabel1.setBounds(20, 30, 200, 20);
 
-        jLabel2.setText("Sifra prijave:");
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
+        PanelPrvi.add(jLabel5);
+        jLabel5.setBounds(10, 20, 1400, 50);
 
-        lblSifraPrijave.setText("jLabel3");
+        panelDrugi.setLayout(null);
+        panelDrugi.add(lblIme);
+        lblIme.setBounds(27, 11, 0, 0);
+        panelDrugi.add(lblPrezime);
+        lblPrezime.setBounds(136, 11, 0, 0);
 
-        jLabel3.setText("Grupa zadataka:");
+        lblTest.setForeground(new java.awt.Color(102, 102, 102));
+        panelDrugi.add(lblTest);
+        lblTest.setBounds(720, 80, 160, 50);
 
-        lblGrupa.setText("jLabel4");
-
-        lblTest.setText("jLabel4");
+        jScrollPane1.setForeground(new java.awt.Color(102, 102, 102));
 
         tabelaZadaci.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -137,84 +137,66 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaZadaci);
 
-        jLabel4.setText("Napomena: ukoliko izmenite odgovore, ponovo izracunajte ukupan broj poena kandidata!");
+        panelDrugi.add(jScrollPane1);
+        jScrollPane1.setBounds(250, 150, 590, 394);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("Napomena: ukoliko izmenite odgovore, ponovo izracunajte ukupan broj poena kandidata!");
+        panelDrugi.add(jLabel4);
+        jLabel4.setBounds(250, 560, 790, 22);
+
+        btnIzmeniKarton.setBackground(new java.awt.Color(153, 153, 153));
+        btnIzmeniKarton.setForeground(new java.awt.Color(102, 102, 102));
         btnIzmeniKarton.setText("Izmeni karton");
         btnIzmeniKarton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIzmeniKartonActionPerformed(evt);
             }
         });
+        panelDrugi.add(btnIzmeniKarton);
+        btnIzmeniKarton.setBounds(960, 160, 170, 40);
 
-        javax.swing.GroupLayout PanelDrugiLayout = new javax.swing.GroupLayout(PanelDrugi);
-        PanelDrugi.setLayout(PanelDrugiLayout);
-        PanelDrugiLayout.setHorizontalGroup(
-            PanelDrugiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelDrugiLayout.createSequentialGroup()
-                .addGroup(PanelDrugiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelDrugiLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(PanelDrugiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(lblIme)
-                            .addComponent(jLabel3))
-                        .addGap(29, 29, 29)
-                        .addGroup(PanelDrugiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelDrugiLayout.createSequentialGroup()
-                                .addComponent(lblGrupa)
-                                .addGap(27, 27, 27)
-                                .addComponent(lblTest))
-                            .addComponent(lblPrezime)
-                            .addGroup(PanelDrugiLayout.createSequentialGroup()
-                                .addComponent(lblSifraPrijave)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
-                                .addComponent(btnIzmeniKarton))))
-                    .addGroup(PanelDrugiLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelDrugiLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)))
-                .addGap(96, 96, 96))
-        );
-        PanelDrugiLayout.setVerticalGroup(
-            PanelDrugiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelDrugiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelDrugiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIme)
-                    .addComponent(lblPrezime))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelDrugiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblSifraPrijave)
-                    .addComponent(btnIzmeniKarton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelDrugiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblGrupa)
-                    .addComponent(lblTest))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Sifra prijave:");
+        panelDrugi.add(jLabel2);
+        jLabel2.setBounds(60, 30, 130, 17);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Grupa zadataka:");
+        panelDrugi.add(jLabel3);
+        jLabel3.setBounds(60, 100, 150, 17);
+
+        lblSifraPrijave.setForeground(new java.awt.Color(102, 102, 102));
+        panelDrugi.add(lblSifraPrijave);
+        lblSifraPrijave.setBounds(220, 20, 270, 50);
+
+        lblGrupa.setForeground(new java.awt.Color(102, 102, 102));
+        panelDrugi.add(lblGrupa);
+        lblGrupa.setBounds(220, 80, 270, 50);
+
+        labelaSlika.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
+        panelDrugi.add(labelaSlika);
+        labelaSlika.setBounds(-10, 0, 1470, 630);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPrvi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PanelDrugi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(PanelPrvi, javax.swing.GroupLayout.DEFAULT_SIZE, 1450, Short.MAX_VALUE)
+                    .addComponent(panelDrugi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelPrvi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelPrvi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelDrugi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelDrugi, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE))
         );
 
         pack();
@@ -250,7 +232,7 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
                 lblPrezime.setText(kand.getPrezime());
                 lblSifraPrijave.setText(kand.getSifraPrijave());
             }
-            PanelDrugi.setVisible(true);
+            panelDrugi.setVisible(true);
             lblGrupa.setText(karton.getGrupaZadataka().getBrGrupe()+"");
             lblTest.setText(karton.getGrupaZadataka().getTest().getNazivTesta());
             
@@ -286,6 +268,10 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, so.getPoruka());
         return;
     }//GEN-LAST:event_btnIzmeniKartonActionPerformed
+
+    private void txtKartonskiBrojActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKartonskiBrojActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtKartonskiBrojActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,7 +309,6 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanelDrugi;
     private javax.swing.JPanel PanelPrvi;
     private javax.swing.JButton btnIzmeniKarton;
     private javax.swing.JButton btnNadji;
@@ -332,12 +317,15 @@ public class FormaIzmenaKartona extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelaSlika;
     private javax.swing.JLabel lblGrupa;
     private javax.swing.JLabel lblIme;
     private javax.swing.JLabel lblPrezime;
     private javax.swing.JLabel lblSifraPrijave;
     private javax.swing.JLabel lblTest;
+    private javax.swing.JPanel panelDrugi;
     private javax.swing.JTable tabelaZadaci;
     private javax.swing.JTextField txtKartonskiBroj;
     // End of variables declaration//GEN-END:variables
