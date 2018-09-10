@@ -64,7 +64,7 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
 
         jPanel2.setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Verifikovanje"));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -72,6 +72,7 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
         jLabel1.setText("Sifra kartona:");
 
         btnPronadji.setBackground(new java.awt.Color(153, 153, 153));
+        btnPronadji.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPronadji.setForeground(new java.awt.Color(102, 102, 102));
         btnPronadji.setText("Pronadji karton");
         btnPronadji.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +86,7 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
         jLabel2.setText("Sifra kandidata:");
 
         btnPronadjiKandidata.setBackground(new java.awt.Color(153, 153, 153));
+        btnPronadjiKandidata.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPronadjiKandidata.setForeground(new java.awt.Color(102, 102, 102));
         btnPronadjiKandidata.setText("Pronadji kandidata");
         btnPronadjiKandidata.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +110,7 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
         });
 
         btnVerifikuj.setBackground(new java.awt.Color(153, 153, 153));
+        btnVerifikuj.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnVerifikuj.setForeground(new java.awt.Color(102, 102, 102));
         btnVerifikuj.setText("Verifikuj podatke");
         btnVerifikuj.addActionListener(new java.awt.event.ActionListener() {
@@ -116,21 +119,15 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
             }
         });
 
-        btnIzadji.setBackground(new java.awt.Color(153, 153, 153));
-        btnIzadji.setForeground(new java.awt.Color(102, 102, 102));
-        btnIzadji.setText("Izadji");
-        btnIzadji.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIzadjiActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVerifikuj, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,18 +141,13 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
                             .addComponent(txtPrezimeKandidata)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSifraKandidata)
+                                    .addComponent(txtSifraKandidata, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
                                     .addComponent(txtxSifraKartona))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnPronadji, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnPronadjiKandidata, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(txtxImeKandidata)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(804, Short.MAX_VALUE)
-                        .addComponent(btnIzadji, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnVerifikuj)))
+                            .addComponent(txtxImeKandidata))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -186,15 +178,25 @@ public class FormaZaVerifikacijuKartona extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtPrezimeKandidata, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVerifikuj, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnIzadji, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(btnVerifikuj, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
         jPanel2.add(jPanel1);
         jPanel1.setBounds(130, 150, 1070, 370);
+
+        btnIzadji.setBackground(new java.awt.Color(153, 153, 153));
+        btnIzadji.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnIzadji.setForeground(new java.awt.Color(102, 102, 102));
+        btnIzadji.setText("Izadji");
+        btnIzadji.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIzadjiActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnIzadji);
+        btnIzadji.setBounds(1040, 40, 140, 50);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/s1.jpg"))); // NOI18N
         jPanel2.add(jLabel5);

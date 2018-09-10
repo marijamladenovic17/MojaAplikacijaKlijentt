@@ -78,33 +78,62 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaZadataka2 = new javax.swing.JTable();
         btnUnosCentralneKomisije = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelGlavni.setBackground(new java.awt.Color(102, 102, 102));
+        panelGlavni.setBackground(new java.awt.Color(204, 204, 204));
+        panelGlavni.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Molimo unesite kartonski broj:");
+        panelGlavni.add(jLabel1);
+        jLabel1.setBounds(170, 40, 182, 17);
 
+        txtKartonskiBroj.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtKartonskiBroj.setForeground(new java.awt.Color(102, 102, 102));
+        panelGlavni.add(txtKartonskiBroj);
+        txtKartonskiBroj.setBounds(390, 30, 130, 40);
+
+        btnNadjiKarton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnNadjiKarton.setForeground(new java.awt.Color(102, 102, 102));
         btnNadjiKarton.setText("Nadji karton");
         btnNadjiKarton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNadjiKartonActionPerformed(evt);
             }
         });
+        panelGlavni.add(btnNadjiKarton);
+        btnNadjiKarton.setBounds(650, 30, 190, 40);
 
+        btnNazad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnNazad.setForeground(new java.awt.Color(102, 102, 102));
         btnNazad.setText("Nazad");
         btnNazad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNazadActionPerformed(evt);
             }
         });
+        panelGlavni.add(btnNazad);
+        btnNazad.setBounds(1030, 30, 180, 40);
 
+        panelZaNestajanje.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Sifra prijave:");
 
+        lblSifraPrijave.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSifraPrijave.setForeground(new java.awt.Color(102, 102, 102));
         lblSifraPrijave.setText("jLabel3");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Grupa zadataka:");
 
+        lblGrupaZadataka.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblGrupaZadataka.setForeground(new java.awt.Color(102, 102, 102));
         lblGrupaZadataka.setText("jLabel4");
 
         tabelaZadataka.setModel(new javax.swing.table.DefaultTableModel(
@@ -120,6 +149,8 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaZadataka);
 
+        lblTest.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTest.setForeground(new java.awt.Color(102, 102, 102));
         lblTest.setText("jLabel4");
 
         javax.swing.GroupLayout panelZaNestajanjeLayout = new javax.swing.GroupLayout(panelZaNestajanje);
@@ -129,52 +160,73 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
             .addGroup(panelZaNestajanjeLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelZaNestajanjeLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblGrupaZadataka)
-                        .addGap(36, 36, 36)
-                        .addComponent(lblTest))
-                    .addGroup(panelZaNestajanjeLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(26, 26, 26)
-                        .addComponent(lblSifraPrijave))
-                    .addGroup(panelZaNestajanjeLayout.createSequentialGroup()
-                        .addComponent(lblIme)
-                        .addGap(28, 28, 28)
-                        .addComponent(lblPrezime))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addGroup(panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelZaNestajanjeLayout.createSequentialGroup()
+                                .addGroup(panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelZaNestajanjeLayout.createSequentialGroup()
+                                        .addComponent(lblIme)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(lblPrezime))
+                                    .addComponent(jLabel2))
+                                .addGap(51, 51, 51))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelZaNestajanjeLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(33, 33, 33)))
+                        .addGroup(panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelZaNestajanjeLayout.createSequentialGroup()
+                                .addComponent(lblGrupaZadataka, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)
+                                .addComponent(lblTest, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblSifraPrijave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         panelZaNestajanjeLayout.setVerticalGroup(
             panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelZaNestajanjeLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelZaNestajanjeLayout.createSequentialGroup()
+                        .addGroup(panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIme)
+                            .addComponent(lblPrezime))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2))
+                    .addComponent(lblSifraPrijave, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIme)
-                    .addComponent(lblPrezime))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblSifraPrijave))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelZaNestajanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(lblGrupaZadataka)
-                    .addComponent(lblTest))
+                    .addComponent(lblTest, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGrupaZadataka, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
+        panelGlavni.add(panelZaNestajanje);
+        panelZaNestajanje.setBounds(150, 100, 520, 460);
+
+        panelZaNestajanje2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Sifra prijave:");
 
+        lblSifraPrijave2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSifraPrijave2.setForeground(new java.awt.Color(102, 102, 102));
         lblSifraPrijave2.setText("jLabel5");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Grupa zadataka:");
 
+        lblGrupaZadataka2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblGrupaZadataka2.setForeground(new java.awt.Color(102, 102, 102));
         lblGrupaZadataka2.setText("jLabel6");
 
+        lblTest2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTest2.setForeground(new java.awt.Color(102, 102, 102));
         lblTest2.setText("jLabel6");
 
         tabelaZadataka2.setModel(new javax.swing.table.DefaultTableModel(
@@ -195,28 +247,28 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
         panelZaNestajanje2Layout.setHorizontalGroup(
             panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
-                .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(32, 32, 32)
+                .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGap(62, 62, 62)
+                        .addComponent(lblIme2)
+                        .addGap(28, 28, 28)
+                        .addComponent(lblPrezime2))
+                    .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
+                        .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
                         .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblGrupaZadataka2)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTest2))
+                                .addGap(37, 37, 37)
+                                .addComponent(lblGrupaZadataka2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblTest2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(lblIme2)
-                                .addGap(28, 28, 28)
-                                .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPrezime2)
-                                    .addComponent(lblSifraPrijave2)))
-                            .addComponent(jLabel4)))
-                    .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(lblSifraPrijave2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         panelZaNestajanje2Layout.setVerticalGroup(
             panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,90 +277,53 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
                 .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIme2)
                     .addComponent(lblPrezime2))
-                .addGap(28, 28, 28)
-                .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lblSifraPrijave2))
+                .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSifraPrijave2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(lblTest2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelZaNestajanje2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGrupaZadataka2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelZaNestajanje2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(lblGrupaZadataka2)
-                    .addComponent(lblTest2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
 
-        btnUnosCentralneKomisije.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        panelGlavni.add(panelZaNestajanje2);
+        panelZaNestajanje2.setBounds(700, 100, 520, 460);
+
+        btnUnosCentralneKomisije.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnUnosCentralneKomisije.setForeground(new java.awt.Color(102, 102, 102));
         btnUnosCentralneKomisije.setText("Unesi ispravan karton");
         btnUnosCentralneKomisije.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUnosCentralneKomisijeActionPerformed(evt);
             }
         });
+        panelGlavni.add(btnUnosCentralneKomisije);
+        btnUnosCentralneKomisije.setBounds(1000, 590, 210, 50);
 
-        javax.swing.GroupLayout panelGlavniLayout = new javax.swing.GroupLayout(panelGlavni);
-        panelGlavni.setLayout(panelGlavniLayout);
-        panelGlavniLayout.setHorizontalGroup(
-            panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGlavniLayout.createSequentialGroup()
-                .addGroup(panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelGlavniLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelZaNestajanje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                        .addComponent(btnUnosCentralneKomisije)
-                        .addGap(18, 18, 18)
-                        .addComponent(panelZaNestajanje2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelGlavniLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtKartonskiBroj, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnNadjiKarton)
-                        .addGap(51, 51, 51)
-                        .addComponent(btnNazad)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        panelGlavniLayout.setVerticalGroup(
-            panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGlavniLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtKartonskiBroj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNadjiKarton)
-                    .addComponent(btnNazad))
-                .addGroup(panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelGlavniLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(panelGlavniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelZaNestajanje2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelZaNestajanje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(panelGlavniLayout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(btnUnosCentralneKomisije, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
+        panelGlavni.add(jLabel6);
+        jLabel6.setBounds(0, 0, 1430, 700);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelGlavni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(panelGlavni, javax.swing.GroupLayout.PREFERRED_SIZE, 1437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelGlavni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelGlavni, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
         );
 
         pack();
@@ -465,6 +480,7 @@ public class FormaPretragaKartona extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblGrupaZadataka;

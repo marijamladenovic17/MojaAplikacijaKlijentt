@@ -63,15 +63,16 @@ public class FormaZaIzmenuKomisije extends javax.swing.JFrame {
         cmbKomisija.setForeground(new java.awt.Color(102, 102, 102));
         cmbKomisija.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(cmbKomisija);
-        cmbKomisija.setBounds(190, 80, 330, 20);
+        cmbKomisija.setBounds(170, 90, 330, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Izaberi komisiju: ");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 80, 130, 17);
+        jLabel1.setBounds(20, 110, 130, 17);
 
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Izadji");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,9 +81,10 @@ public class FormaZaIzmenuKomisije extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(530, 20, 134, 38);
+        jButton1.setBounds(530, 18, 134, 50);
 
         btnPromeni.setBackground(new java.awt.Color(153, 153, 153));
+        btnPromeni.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnPromeni.setForeground(new java.awt.Color(102, 102, 102));
         btnPromeni.setText("Promeni");
         btnPromeni.addActionListener(new java.awt.event.ActionListener() {

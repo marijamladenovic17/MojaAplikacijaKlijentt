@@ -48,6 +48,8 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         srediKomboSifraZanimanja();
         srediKomboNacionalnost();
         srediKomboSifraSrednjeSkole();
+        txtPlus381.setText("+");
+        txtPlusFiksni.setText("+");
 
     }
 
@@ -62,265 +64,266 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
 
         buttonGroupPol = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        txtImeKandidata = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtPrezime = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtImeRoditelja = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtImeKandidata = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jRMuski = new javax.swing.JRadioButton();
         jRZenski = new javax.swing.JRadioButton();
-        jLabel9 = new javax.swing.JLabel();
-        txtJMBG = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         cmbDrzavljanstvo = new javax.swing.JComboBox();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        cmbSifraZanimanja = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        cmbNacionalnost = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
+        cmbSifraSkole = new javax.swing.JComboBox();
+        txtJMBG = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         txtMobilniTel = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtFixTel = new javax.swing.JTextField();
-        btnUnesiKandidata = new javax.swing.JButton();
-        cmbSifraZanimanja = new javax.swing.JComboBox();
-        cmbNacionalnost = new javax.swing.JComboBox();
-        cmbSifraSkole = new javax.swing.JComboBox();
-        btnGlavniMeni = new javax.swing.JButton();
         txtPlus381 = new javax.swing.JTextField();
         txtPlusFiksni = new javax.swing.JTextField();
+        btnUnesiKandidata = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        btnGlavniMeni = new javax.swing.JButton();
         txtSifraPrijave = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Unos novog kanidata");
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Unos kandidata"));
+        jPanel1.setLayout(null);
 
-        jLabel1.setText("Prezime:");
-
-        jLabel2.setText("Ime jednog roditelja:");
-
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Ime:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(30, 40, 28, 20);
 
+        txtImeKandidata.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtImeKandidata.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtImeKandidata);
+        txtImeKandidata.setBounds(160, 40, 1070, 30);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Prezime:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(30, 90, 52, 17);
+
+        txtPrezime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPrezime.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtPrezime);
+        txtPrezime.setBounds(160, 80, 1070, 30);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Ime jednog roditelja:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(30, 130, 127, 17);
+
+        txtImeRoditelja.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtImeRoditelja.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtImeRoditelja);
+        txtImeRoditelja.setBounds(160, 120, 1070, 30);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Pol:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(30, 170, 23, 17);
 
         buttonGroupPol.add(jRMuski);
+        jRMuski.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jRMuski.setForeground(new java.awt.Color(102, 102, 102));
         jRMuski.setText("M");
         jRMuski.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRMuskiActionPerformed(evt);
             }
         });
+        jPanel1.add(jRMuski);
+        jRMuski.setBounds(30, 190, 35, 25);
 
         buttonGroupPol.add(jRZenski);
+        jRZenski.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jRZenski.setForeground(new java.awt.Color(102, 102, 102));
         jRZenski.setText("Z");
         jRZenski.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRZenskiActionPerformed(evt);
             }
         });
+        jPanel1.add(jRZenski);
+        jRZenski.setBounds(30, 220, 33, 25);
 
-        jLabel9.setText("JMBG:");
-
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Drzavljanstvo:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(200, 170, 89, 17);
 
-        jLabel6.setText("Sifra zanimanja roditelja:");
-
-        jLabel7.setText("Nacionalnost:");
-
-        jLabel11.setText("Sifra srednje skole:");
-
+        cmbDrzavljanstvo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbDrzavljanstvo.setForeground(new java.awt.Color(102, 102, 102));
         cmbDrzavljanstvo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDrzavljanstvo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDrzavljanstvoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmbDrzavljanstvo);
+        cmbDrzavljanstvo.setBounds(150, 210, 180, 30);
 
-        jLabel10.setText("Mobilni:");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("Sifra zanimanja roditelja:");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(420, 170, 148, 20);
 
+        cmbSifraZanimanja.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbSifraZanimanja.setForeground(new java.awt.Color(102, 102, 102));
+        cmbSifraZanimanja.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(cmbSifraZanimanja);
+        cmbSifraZanimanja.setBounds(400, 210, 190, 30);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("Nacionalnost:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(760, 170, 82, 17);
+
+        cmbNacionalnost.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbNacionalnost.setForeground(new java.awt.Color(102, 102, 102));
+        cmbNacionalnost.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(cmbNacionalnost);
+        cmbNacionalnost.setBounds(690, 210, 200, 30);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel11.setText("Sifra srednje skole:");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(1060, 170, 140, 30);
+
+        cmbSifraSkole.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cmbSifraSkole.setForeground(new java.awt.Color(102, 102, 102));
+        cmbSifraSkole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(cmbSifraSkole);
+        cmbSifraSkole.setBounds(1010, 210, 210, 30);
+
+        txtJMBG.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtJMBG.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtJMBG);
+        txtJMBG.setBounds(150, 260, 1080, 30);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel9.setText("JMBG:");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(30, 270, 38, 17);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel15.setText("Mobilni:");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(30, 310, 90, 20);
+
+        txtMobilniTel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtMobilniTel.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtMobilniTel);
+        txtMobilniTel.setBounds(240, 300, 260, 30);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Fiksni telefon:");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(592, 310, 140, 17);
 
+        txtFixTel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtFixTel.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtFixTel);
+        txtFixTel.setBounds(900, 300, 330, 30);
+
+        txtPlus381.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPlus381.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtPlus381);
+        txtPlus381.setBounds(150, 300, 70, 30);
+
+        txtPlusFiksni.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPlusFiksni.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtPlusFiksni);
+        txtPlusFiksni.setBounds(800, 300, 80, 30);
+
+        btnUnesiKandidata.setBackground(new java.awt.Color(153, 153, 153));
+        btnUnesiKandidata.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnUnesiKandidata.setForeground(new java.awt.Color(102, 102, 102));
         btnUnesiKandidata.setText("Unesi kandidata");
         btnUnesiKandidata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUnesiKandidataActionPerformed(evt);
             }
         });
+        jPanel1.add(btnUnesiKandidata);
+        btnUnesiKandidata.setBounds(1050, 390, 180, 60);
 
-        cmbSifraZanimanja.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(10, 14, 1380, 570);
 
-        cmbNacionalnost.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(" "));
+        jPanel2.setLayout(null);
 
-        cmbSifraSkole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
+        btnGlavniMeni.setBackground(new java.awt.Color(153, 153, 153));
+        btnGlavniMeni.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnGlavniMeni.setForeground(new java.awt.Color(102, 102, 102));
         btnGlavniMeni.setText("Izadji");
         btnGlavniMeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGlavniMeniActionPerformed(evt);
             }
         });
+        jPanel2.add(btnGlavniMeni);
+        btnGlavniMeni.setBounds(1070, 50, 150, 50);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel10)))
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtPlus381, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtMobilniTel, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPlusFiksni, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(txtFixTel, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPrezime, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtImeRoditelja, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtImeKandidata, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtJMBG, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(cmbDrzavljanstvo, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(175, 175, 175))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(cmbSifraZanimanja, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(78, 78, 78)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(279, 279, 279)
-                                        .addComponent(jLabel11)
-                                        .addGap(49, 49, 49))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(cmbNacionalnost, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(58, 58, 58)
-                                        .addComponent(cmbSifraSkole, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(27, 27, 27))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRZenski, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jRMuski)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(1, 1, 1)
-                                    .addComponent(jLabel9))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGlavniMeni, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btnUnesiKandidata, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtImeRoditelja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtImeKandidata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11)
-                        .addComponent(jLabel7))
-                    .addComponent(jLabel5))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cmbDrzavljanstvo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbNacionalnost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbSifraSkole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbSifraZanimanja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jRMuski))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRZenski)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtJMBG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtMobilniTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(txtFixTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPlus381, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPlusFiksni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnUnesiKandidata, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGlavniMeni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
-        );
+        txtSifraPrijave.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtSifraPrijave.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel2.add(txtSifraPrijave);
+        txtSifraPrijave.setBounds(240, 50, 170, 40);
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(" "));
-
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Broj prijave:");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(50, 60, 75, 17);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel8)
-                .addGap(49, 49, 49)
-                .addComponent(txtSifraPrijave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSifraPrijave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
+        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
+        jPanel2.add(jLabel13);
+        jLabel13.setBounds(10, 14, 1370, 110);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1385, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -368,12 +371,14 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
 
         if (!mobilni.matches(regex)) {
             JOptionPane.showMessageDialog(this, "Unesite broj za polje mobilni telefon!");
+            txtMobilniTel.setText("");
             return;
         }
         
         regex = "'+'[0-9]";
         if(plus381.matches(regex)){
-            JOptionPane.showMessageDialog(this, "Unesite pozivni broj u formatu +XXX!");
+            JOptionPane.showMessageDialog(this, "Unesite pozivni broj za polje mobilni u formatu +XXX!");
+            txtPlus381.setText("+");
             return;
         }
         int brojPrijave = 0;
@@ -382,6 +387,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
             
         } else {
             JOptionPane.showMessageDialog(this, "Unesite broj za polje BROJ PRIJAVE!");
+            txtSifraPrijave.setText("");
             return;
         }
         
@@ -423,12 +429,14 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         
         if(!fiksni.matches(regex)){
             JOptionPane.showMessageDialog(this, "Unesite fiksni telefon u formatu 01x/xxxxxxx");
+            txtFixTel.setText("");
             return;
         }
         regex = "'+'[0-9]";
         
         if(plusF.matches(regex)){
-             JOptionPane.showMessageDialog(this, "Unesite pozivni broj u formatu +XX");
+             JOptionPane.showMessageDialog(this, "Unesite pozivni broj u formatu +XXX");
+             txtPlusFiksni.setText("+");
             return;
         }
         Kandidat kandidat = new Kandidat(brojP, jmbg, ime, imeRoditelja, pol, prezime, plus381+mobilni, plusF+fiksni, ss, nac, z, drzevlj);
@@ -447,6 +455,10 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
     private void jRMuskiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMuskiActionPerformed
         zenskiPol = false;
     }//GEN-LAST:event_jRMuskiActionPerformed
+
+    private void cmbDrzavljanstvoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDrzavljanstvoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDrzavljanstvoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -492,9 +504,11 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbSifraSkole;
     private javax.swing.JComboBox cmbSifraZanimanja;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

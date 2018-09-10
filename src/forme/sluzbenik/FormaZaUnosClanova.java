@@ -62,7 +62,8 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
         jPanel2.add(cmbClanovi);
         cmbClanovi.setBounds(180, 60, 306, 30);
 
-        jButton1.setForeground(new java.awt.Color(153, 153, 153));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Izadji");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,8 +73,9 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
         jPanel2.add(jButton1);
         jButton1.setBounds(539, 13, 110, 40);
 
-        btnSacuvaj.setForeground(new java.awt.Color(153, 153, 153));
-        btnSacuvaj.setText("SACUVAJ");
+        btnSacuvaj.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnSacuvaj.setForeground(new java.awt.Color(102, 102, 102));
+        btnSacuvaj.setText("Sacuvaj");
         btnSacuvaj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSacuvajActionPerformed(evt);
