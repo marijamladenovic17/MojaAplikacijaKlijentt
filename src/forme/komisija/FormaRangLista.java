@@ -93,9 +93,10 @@ public class FormaRangLista extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel1);
-        jPanel1.setBounds(340, 110, 578, 420);
+        jPanel1.setBounds(370, 120, 578, 420);
 
         btnNazad.setBackground(new java.awt.Color(204, 204, 204));
+        btnNazad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnNazad.setForeground(new java.awt.Color(102, 102, 102));
         btnNazad.setText("Nazad");
         btnNazad.addActionListener(new java.awt.event.ActionListener() {
@@ -108,20 +109,20 @@ public class FormaRangLista extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(0, 0, 1310, 640);
+        jLabel2.setBounds(0, 0, 1460, 770);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1463, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

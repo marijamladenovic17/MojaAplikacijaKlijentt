@@ -6,8 +6,11 @@
 package forme;
 
 import domen.Komisija;
+import domen.Sluzbenik;
 import forme.komisija.FormaPrijavaKomisija;
+import forme.komisija.FormaZaKomisiju;
 import forme.sluzbenik.FormaPrijavaSluzbenik;
+import forme.sluzbenik.FormaZaSluzbenika;
 //import domen.Komisija;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -28,10 +31,11 @@ public class FormaPrijaviSe extends javax.swing.JFrame {
     /**
      * Creates new form FormaPrijaviSe
      */
-    ArrayList<Komisija> komisije;
+   int brojac;
     
     public FormaPrijaviSe() {
         initComponents();
+        brojac =3;
         Toolkit tk = Toolkit.getDefaultToolkit();
         int x = (int) tk.getScreenSize().getWidth();
         int y = (int) tk.getScreenSize().getHeight();
@@ -54,7 +58,7 @@ public class FormaPrijaviSe extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtPass = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnPrijaviSe = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,9 +83,15 @@ public class FormaPrijaviSe extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Uloguj se:");
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jButton1.setText("Prijavi se");
+        btnPrijaviSe.setBackground(new java.awt.Color(153, 153, 153));
+        btnPrijaviSe.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnPrijaviSe.setForeground(new java.awt.Color(102, 102, 102));
+        btnPrijaviSe.setText("Prijavi se");
+        btnPrijaviSe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrijaviSeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -103,7 +113,7 @@ public class FormaPrijaviSe extends javax.swing.JFrame {
                             .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnPrijaviSe, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -120,7 +130,7 @@ public class FormaPrijaviSe extends javax.swing.JFrame {
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(28, 28, 28)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addComponent(btnPrijaviSe, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -146,6 +156,46 @@ public class FormaPrijaviSe extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPrijaviSeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrijaviSeActionPerformed
+        // TODO add your handling code here:
+        brojac--;
+        String user = txtUser.getText();
+        String pass = txtPass.getText();
+        if (user.isEmpty() || pass.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Unesite sva polja", "GRESKA!", JOptionPane.ERROR_MESSAGE);
+            if(brojac==0){
+                dispose();
+            }
+            return;
+        }
+        String[] niz = {user,pass};
+        
+        KlijentskiZahtev kz = new KlijentskiZahtev();
+        kz.setOperacija(Operacije.NADJI_PRIJAVLJENOG);
+        kz.setParametar(niz);
+        KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
+        ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
+        Object o = so.getOdgovor();
+        if(o==null){
+            JOptionPane.showMessageDialog(this,"Ti podaci ne postoje u bazi! Preostalo pokusaja: " + brojac,"GRESKA!", JOptionPane.ERROR_MESSAGE);
+            if(brojac==0){
+                dispose();
+            }
+            return;
+        }
+        if(o instanceof Komisija){
+            FormaZaKomisiju fzk = new FormaZaKomisiju();
+            fzk.setVisible(true);
+            this.setVisible(false);
+        }
+        if(o instanceof Sluzbenik){
+            FormaZaSluzbenika fzs = new FormaZaSluzbenika();
+            fzs.setVisible(true);
+            this.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_btnPrijaviSeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,7 +233,7 @@ public class FormaPrijaviSe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnPrijaviSe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
