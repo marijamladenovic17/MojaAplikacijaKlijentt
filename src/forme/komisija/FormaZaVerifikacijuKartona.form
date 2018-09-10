@@ -107,20 +107,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="txtxSifraKartona" min="-2" pref="41" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="btnPronadji" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnPronadji" pref="42" max="32767" attributes="0"/>
+                          <Component id="txtxSifraKartona" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="txtSifraKandidata" min="-2" pref="46" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="btnPronadjiKandidata" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnPronadjiKandidata" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="txtSifraKandidata" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">

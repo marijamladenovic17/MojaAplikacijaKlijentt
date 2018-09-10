@@ -171,6 +171,7 @@ public class UnosGrupeZadataka extends javax.swing.JFrame {
         String regex = "[1-9][0-9]*";
         if(!brR.matches(regex)){
             JOptionPane.showMessageDialog(this, "Unesite BROJ za polje sifra grupe zadataka!");
+            txtSifraGrupeZadataka.setText("");
                 return;
         }
         int sifraGZ = Integer.parseInt(brR);

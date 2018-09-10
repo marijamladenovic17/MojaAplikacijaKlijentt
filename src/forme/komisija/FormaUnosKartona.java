@@ -195,7 +195,7 @@ public class FormaUnosKartona extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Broj kartona:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(860, 40, 150, 17);
+        jLabel2.setBounds(880, 40, 130, 17);
         jPanel2.add(txtBrojKartona);
         txtBrojKartona.setBounds(1033, 30, 310, 30);
 
@@ -257,6 +257,7 @@ public class FormaUnosKartona extends javax.swing.JFrame {
        String regex = "[0-9]+";
        if(!brojKar.matches(regex)){
             JOptionPane.showMessageDialog(this, "Unesite broj za polje broj KARTONA!");
+            txtBrojKartona.setText("");
             return;
        }
         int kartonID = Integer.parseInt(kid);

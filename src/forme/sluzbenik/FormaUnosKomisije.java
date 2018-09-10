@@ -130,7 +130,7 @@ public class FormaUnosKomisije extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnPlus);
-        btnPlus.setBounds(690, 230, 142, 40);
+        btnPlus.setBounds(690, 240, 142, 40);
 
         btnGlavni.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnGlavni.setForeground(new java.awt.Color(102, 102, 102));
