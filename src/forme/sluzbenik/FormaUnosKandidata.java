@@ -90,6 +90,12 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         txtPlus381 = new javax.swing.JTextField();
         txtPlusFiksni = new javax.swing.JTextField();
         btnUnesiKandidata = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtBrBodovaIzSkole = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        txtxEmail = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        cmbSmer = new javax.swing.JComboBox();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnGlavniMeni = new javax.swing.JButton();
@@ -240,7 +246,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         txtMobilniTel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtMobilniTel.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(txtMobilniTel);
-        txtMobilniTel.setBounds(240, 300, 260, 30);
+        txtMobilniTel.setBounds(240, 300, 280, 30);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
@@ -273,7 +279,36 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnUnesiKandidata);
-        btnUnesiKandidata.setBounds(1050, 390, 180, 60);
+        btnUnesiKandidata.setBounds(920, 470, 180, 60);
+
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel10.setText("Broj bodova iz skole:");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(30, 370, 110, 20);
+
+        txtBrBodovaIzSkole.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtBrBodovaIzSkole);
+        txtBrBodovaIzSkole.setBounds(150, 360, 370, 30);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel16.setText("E-mail:");
+        jPanel1.add(jLabel16);
+        jLabel16.setBounds(590, 360, 120, 30);
+
+        txtxEmail.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtxEmail);
+        txtxEmail.setBounds(800, 360, 430, 30);
+
+        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel17.setText("Smer:");
+        jPanel1.add(jLabel17);
+        jLabel17.setBounds(30, 400, 110, 30);
+
+        cmbSmer.setForeground(new java.awt.Color(102, 102, 102));
+        cmbSmer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1.INFORMACIONI SISTEMI", "2.MENADZMENT", "3.INFORMACIONI SISTEMI-SISTEM NA DALJINU", "4.SVA TRI SMERA" }));
+        jPanel1.add(cmbSmer);
+        cmbSmer.setBounds(150, 400, 350, 30);
 
         jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
         jPanel1.add(jLabel14);
@@ -345,6 +380,9 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         String imeRoditelja = txtImeRoditelja.getText();
         String prezime = txtPrezime.getText();
         String pol;
+        String email = txtxEmail.getText();
+        String smeer = (String) cmbSmer.getSelectedItem();
+        String brBodovaSk = txtBrBodovaIzSkole.getText();
         
         if (zenskiPol == true) {
             pol = "Zenski";
@@ -360,8 +398,9 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         String fiksni = txtFixTel.getText();
         String plus381= txtPlus381.getText();
         String plusF= txtPlusFiksni.getText();
+        
         if (brojP.isEmpty() || ime.isEmpty() || imeRoditelja.isEmpty() || prezime.isEmpty() || pol.isEmpty() || drzevlj == null
-                || z == null || nac == null || ss == null || jmbg.isEmpty() || mobilni.isEmpty() || fiksni.isEmpty() || plus381.isEmpty() || plusF.isEmpty()) {
+                || z == null || nac == null || email.isEmpty()||smeer.isEmpty()|| brBodovaSk.isEmpty() || ss == null || jmbg.isEmpty() || mobilni.isEmpty() || fiksni.isEmpty() || plus381.isEmpty() || plusF.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Unesite sva polja!");
             return;
 
@@ -418,14 +457,38 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Treca i cetvrta cifra JMBG-a predstavljaju mesece u godini [1-12]!");
             return;
         }
+        boolean tr = false;
+        for (int i = 0; i < email.length(); i++) {
+            if(email.charAt(i)=='@'){
+                tr= true;
+            }
+        }
         
-        
-        
-      
-        
-        
-        
+        if(!tr) {
+           JOptionPane.showMessageDialog(this, "E-mail treba da sadrzi @!");
+            txtxEmail.setText("");
+            return; 
+        }
+//        1.INFORMACIONI SISTEMI
+//2.MENADZMENT
+//3.INFORMACIONI SISTEMI-SISTEM NA DALJINU
+//4.SVA TRI SMERA
+            int smer = 0;
+        if(smeer.equals("1.INFORMACIONI SISTEMI")){
+            smer = 1;
+        }
+        if(smeer.equals("2.MENADZMENT")) {
+            smer =2;
+        }
+         if(smeer.equals("3.INFORMACIONI SISTEMI-SISTEM NA DALJINU")) {
+            smer =3;
+        }
+         if(smeer.equals("4.SVA TRI SMERA")) {
+            smer =4;
+        }
         regex = "[0-9]+";
+        
+        double brBodSkola = Double.parseDouble(brBodovaSk);
         
         if(!fiksni.matches(regex)){
             JOptionPane.showMessageDialog(this, "Unesite fiksni telefon u formatu 01x/xxxxxxx");
@@ -439,7 +502,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
              txtPlusFiksni.setText("+");
             return;
         }
-        Kandidat kandidat = new Kandidat(brojP, jmbg, ime, imeRoditelja, pol, prezime, plus381+mobilni, plusF+fiksni, ss, nac, z, drzevlj);
+        Kandidat kandidat = new Kandidat(brojP, jmbg, ime, imeRoditelja, pol, prezime, plus381+mobilni, plusF+fiksni, ss, nac, z, drzevlj,email,brBodSkola,smer);
         
         KlijentskiZahtev kz = new KlijentskiZahtev(Operacije.UNOS_KANDIDATA, kandidat);
         KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
@@ -503,12 +566,16 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbNacionalnost;
     private javax.swing.JComboBox cmbSifraSkole;
     private javax.swing.JComboBox cmbSifraZanimanja;
+    private javax.swing.JComboBox cmbSmer;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -521,6 +588,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRMuski;
     private javax.swing.JRadioButton jRZenski;
+    private javax.swing.JTextField txtBrBodovaIzSkole;
     private javax.swing.JTextField txtFixTel;
     private javax.swing.JTextField txtImeKandidata;
     private javax.swing.JTextField txtImeRoditelja;
@@ -530,6 +598,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
     private javax.swing.JTextField txtPlusFiksni;
     private javax.swing.JTextField txtPrezime;
     private javax.swing.JTextField txtSifraPrijave;
+    private javax.swing.JTextField txtxEmail;
     // End of variables declaration//GEN-END:variables
 
     private void srediKomboDrzevljanstvo() {
