@@ -243,26 +243,9 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
 
     private void cbKreirajRangListuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKreirajRangListuActionPerformed
         // TODO add your handling code here:
-        if(!postojiRL){
-        KlijentskiZahtev kz = new KlijentskiZahtev();
-        kz.setOperacija(Operacije.NAPRAVI_RANG_LISTU);
-        KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
-        ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
-        
-        Rang_Lista rl = (Rang_Lista) so.getOdgovor();
-        
-        JOptionPane.showMessageDialog(this, so.getPoruka());
-        
         FormaRangLista frl = new FormaRangLista();
-        postojiRL = true;
-        frl.setRl(rl);
-        frl.srediTabelu();
         frl.setVisible(true);
         this.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(this, "Rang lista vec postoji");
-            return;
-        }
     }//GEN-LAST:event_cbKreirajRangListuActionPerformed
 
     /**

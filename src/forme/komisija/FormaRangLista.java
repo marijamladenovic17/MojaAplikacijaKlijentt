@@ -9,7 +9,12 @@ import domen.Rang_Lista;
 import domen.Stavka_Rang_Liste;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import komunikacija.KomunikacijaSaServerom;
+import konstante.Operacije;
 import modeli.ModelTabeleRang;
+import transfer.KlijentskiZahtev;
+import transfer.ServerskiOdgovor;
 
 /**
  *
@@ -27,6 +32,7 @@ public class FormaRangLista extends javax.swing.JFrame {
         int x = tk.getScreenSize().width;
         int y = tk.getScreenSize().height;
         setSize(x, y);
+        panelRL.setVisible(false);
     }
 
     /**
@@ -39,18 +45,21 @@ public class FormaRangLista extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        panelRL = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaRang = new javax.swing.JTable();
         btnNazad = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        cmbSmer = new javax.swing.JComboBox<>();
+        btnKreirajRL = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        panelRL.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
@@ -69,22 +78,22 @@ public class FormaRangLista extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaRang);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelRLLayout = new javax.swing.GroupLayout(panelRL);
+        panelRL.setLayout(panelRLLayout);
+        panelRLLayout.setHorizontalGroup(
+            panelRLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRLLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(106, 106, 106))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRLLayout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelRLLayout.setVerticalGroup(
+            panelRLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRLLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -92,8 +101,8 @@ public class FormaRangLista extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.add(jPanel1);
-        jPanel1.setBounds(370, 120, 578, 420);
+        jPanel2.add(panelRL);
+        panelRL.setBounds(370, 120, 578, 420);
 
         btnNazad.setBackground(new java.awt.Color(204, 204, 204));
         btnNazad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -107,7 +116,24 @@ public class FormaRangLista extends javax.swing.JFrame {
         jPanel2.add(btnNazad);
         btnNazad.setBounds(1090, 40, 150, 30);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
+        jLabel3.setText("Molimo odaberite smer:");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(170, 50, 130, 14);
+
+        cmbSmer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Informacioni sistemi i tehnologije", "Menadzment", "Informacioni sistemi i tehnologije - sistem na daljinu" }));
+        jPanel2.add(cmbSmer);
+        cmbSmer.setBounds(310, 50, 300, 20);
+
+        btnKreirajRL.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnKreirajRL.setForeground(new java.awt.Color(102, 102, 102));
+        btnKreirajRL.setText("Kreiraj rang-listu");
+        btnKreirajRL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKreirajRLActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnKreirajRL);
+        btnKreirajRL.setBounds(630, 40, 150, 30);
         jPanel2.add(jLabel2);
         jLabel2.setBounds(0, 0, 1460, 770);
 
@@ -132,10 +158,37 @@ public class FormaRangLista extends javax.swing.JFrame {
     private void btnNazadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNazadActionPerformed
         // TODO add your handling code here:
         FormaZaKomisiju fzk = new FormaZaKomisiju();
-        fzk.setPostojiRL(true);
+        
         fzk.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNazadActionPerformed
+
+    private void btnKreirajRLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKreirajRLActionPerformed
+        // TODO add your handling code here:
+        String smer = (String) cmbSmer.getSelectedItem();
+        KlijentskiZahtev kz = new KlijentskiZahtev();
+        if(smer.equals("Informacioni sistemi i tehnologije")){
+            kz.setOperacija(Operacije.KREIRAJ_RL_ISIT);
+        }
+        if(smer.equals("Menadzment")){
+            kz.setOperacija(Operacije.KREIRAJ_RL_MEN);
+        }
+        
+        if(smer.equals("Informacioni sistemi i tehnologije - sistem na daljinu")){
+            kz.setOperacija(Operacije.KREIRAJ_RL_ISIT_DALJ);
+        }
+        
+        KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
+        
+        ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
+        
+        Rang_Lista rl = (Rang_Lista) so.getOdgovor();
+        
+        JOptionPane.showMessageDialog(this, so.getPoruka());
+        
+        setRl(rl);
+        srediTabelu();
+    }//GEN-LAST:event_btnKreirajRLActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,15 +234,19 @@ public class FormaRangLista extends javax.swing.JFrame {
         ModelTabeleRang mtr = new ModelTabeleRang();
         mtr.setStavke(stavke);
         tabelaRang.setModel(mtr);
+        panelRL.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKreirajRL;
     private javax.swing.JButton btnNazad;
+    private javax.swing.JComboBox<String> cmbSmer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelRL;
     private javax.swing.JTable tabelaRang;
     // End of variables declaration//GEN-END:variables
 }
