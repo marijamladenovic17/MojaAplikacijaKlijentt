@@ -7,9 +7,7 @@ package forme;
 
 import domen.Komisija;
 import domen.Sluzbenik;
-import forme.komisija.FormaPrijavaKomisija;
 import forme.komisija.FormaZaKomisiju;
-import forme.sluzbenik.FormaPrijavaSluzbenik;
 import forme.sluzbenik.FormaZaSluzbenika;
 //import domen.Komisija;
 import java.awt.Toolkit;

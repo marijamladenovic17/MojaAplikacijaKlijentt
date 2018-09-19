@@ -55,6 +55,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         cbIzmenaKartona = new javax.swing.JCheckBoxMenuItem();
         cbIzracunajPoene = new javax.swing.JCheckBoxMenuItem();
         cbKreirajRangListu = new javax.swing.JCheckBoxMenuItem();
+        cbPDFs = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
         cbLogOut = new javax.swing.JCheckBoxMenuItem();
 
@@ -145,6 +146,15 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
             }
         });
         jMenu1.add(cbKreirajRangListu);
+
+        cbPDFs.setSelected(true);
+        cbPDFs.setText("Kreiraj pdf-ove rezultata");
+        cbPDFs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPDFsActionPerformed(evt);
+            }
+        });
+        jMenu1.add(cbPDFs);
 
         jMenuBar1.add(jMenu1);
 
@@ -248,6 +258,13 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_cbKreirajRangListuActionPerformed
 
+    private void cbPDFsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPDFsActionPerformed
+        // TODO add your handling code here:
+        FormaZaPDFs fzp = new FormaZaPDFs();
+        fzp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_cbPDFsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -294,6 +311,7 @@ public class FormaZaKomisiju extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem cbIzracunajPoene;
     private javax.swing.JCheckBoxMenuItem cbKreirajRangListu;
     private javax.swing.JCheckBoxMenuItem cbLogOut;
+    private javax.swing.JCheckBoxMenuItem cbPDFs;
     private javax.swing.JCheckBoxMenuItem cbPretraga;
     private javax.swing.JCheckBoxMenuItem cbSpajanjeKartona;
     private javax.swing.JCheckBoxMenuItem cbVerifikacija;

@@ -134,6 +134,8 @@ public class FormaRangLista extends javax.swing.JFrame {
         });
         jPanel2.add(btnKreirajRL);
         btnKreirajRL.setBounds(630, 40, 150, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
         jPanel2.add(jLabel2);
         jLabel2.setBounds(0, 0, 1460, 770);
 
