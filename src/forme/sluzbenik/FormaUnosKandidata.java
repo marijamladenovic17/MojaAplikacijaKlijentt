@@ -96,6 +96,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         txtxEmail = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         cmbSmer = new javax.swing.JComboBox();
+        btnVerifikuj = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnGlavniMeni = new javax.swing.JButton();
@@ -284,7 +285,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Broj bodova iz skole:");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(30, 370, 110, 20);
+        jLabel10.setBounds(10, 360, 130, 30);
 
         txtBrBodovaIzSkole.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(txtBrBodovaIzSkole);
@@ -309,6 +310,18 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         cmbSmer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1.INFORMACIONI SISTEMI", "2.MENADZMENT", "3.INFORMACIONI SISTEMI-SISTEM NA DALJINU", "4.SVA TRI SMERA" }));
         jPanel1.add(cmbSmer);
         cmbSmer.setBounds(150, 400, 350, 30);
+
+        btnVerifikuj.setBackground(new java.awt.Color(153, 153, 153));
+        btnVerifikuj.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnVerifikuj.setForeground(new java.awt.Color(102, 102, 102));
+        btnVerifikuj.setText("Verifikuj kandidata");
+        btnVerifikuj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerifikujActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVerifikuj);
+        btnVerifikuj.setBounds(660, 473, 210, 60);
 
         jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Mladenovic_Marija_42014\\MojaAplikacijaKlijentt\\src\\images\\s1.jpg")); // NOI18N
         jPanel1.add(jLabel14);
@@ -523,6 +536,49 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbDrzavljanstvoActionPerformed
 
+    private void btnVerifikujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifikujActionPerformed
+        // TODO add your handling code here:
+       String email = txtxEmail.getText();
+       if(email.isEmpty()) {
+           JOptionPane.showMessageDialog(this, "Unesite email!");
+       }
+                
+                boolean tr = false;
+        for (int i = 0; i < email.length(); i++) {
+            if(email.charAt(i)=='@'){
+                tr= true;
+            }
+        }
+        
+        if(!tr) {
+           JOptionPane.showMessageDialog(this, "E-mail treba da sadrzi @!");
+            txtxEmail.setText("");
+            return; 
+        }
+        
+        KlijentskiZahtev kz = new KlijentskiZahtev(Operacije.VRATI_KANDIDATA_ZA_VERIFIKACIJU, email);
+        KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
+        
+        ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
+        if(so.getOdgovor()==null){
+            JOptionPane.showMessageDialog(this, so.getPoruka());
+            return;
+        } else {
+             Kandidat kandidat = (Kandidat) so.getOdgovor();
+        txtImeKandidata.setText(kandidat.getIme());
+        txtPrezime.setText(kandidat.getPrezime());
+        txtImeRoditelja.setText(kandidat.getImeRoditelja());
+        txtFixTel.setText(kandidat.getFiksni());
+        txtMobilniTel.setText(kandidat.getMobilni());
+        txtJMBG.setText(kandidat.getJmbg());
+        JOptionPane.showMessageDialog(this, so.getPoruka());
+        }
+       
+        
+        
+        
+    }//GEN-LAST:event_btnVerifikujActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -561,6 +617,7 @@ public class FormaUnosKandidata extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGlavniMeni;
     private javax.swing.JButton btnUnesiKandidata;
+    private javax.swing.JButton btnVerifikuj;
     private javax.swing.ButtonGroup buttonGroupPol;
     private javax.swing.JComboBox cmbDrzavljanstvo;
     private javax.swing.JComboBox cmbNacionalnost;

@@ -6,6 +6,7 @@
 package forme.sluzbenik;
 
 import com.sun.xml.internal.ws.developer.ServerSideException;
+import javax.swing.JOptionPane;
 import komunikacija.KomunikacijaSaServerom;
 import konstante.Operacije;
 import transfer.KlijentskiZahtev;
@@ -40,6 +41,7 @@ public class FormaZaUnosObavestenja extends javax.swing.JFrame {
         txtxText = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         txtNaslov = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,6 +49,9 @@ public class FormaZaUnosObavestenja extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Sacuvaj obavestenja");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,24 +59,45 @@ public class FormaZaUnosObavestenja extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(730, 310, 140, 40);
+        jButton1.setBounds(680, 430, 190, 40);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Unesite obavestenje: ");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(60, 150, 120, 30);
+        jLabel2.setBounds(60, 150, 150, 30);
 
         txtxText.setColumns(20);
+        txtxText.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtxText.setForeground(new java.awt.Color(102, 102, 102));
         txtxText.setRows(5);
         jScrollPane1.setViewportView(txtxText);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 150, 650, 130);
+        jScrollPane1.setBounds(220, 150, 650, 250);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Naslov:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(60, 70, 90, 20);
+
+        txtNaslov.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtNaslov.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(txtNaslov);
         txtNaslov.setBounds(220, 50, 650, 40);
+
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(102, 102, 102));
+        jButton2.setText("Izadji");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(1080, 50, 140, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/s1.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -102,8 +128,15 @@ public class FormaZaUnosObavestenja extends javax.swing.JFrame {
         KlijentskiZahtev kz = new KlijentskiZahtev(Operacije.SACUVAJ_OBAVESTENJA, niz);
         KomunikacijaSaServerom.getInstance().posaljiKZ(kz);
         ServerskiOdgovor so = KomunikacijaSaServerom.getInstance().prihvatiSO();
-        System.out.println(so.getPoruka());
+        JOptionPane.showMessageDialog(this, so.getPoruka());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        FormaZaSluzbenika fzs = new FormaZaSluzbenika();
+        fzs.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +175,7 @@ public class FormaZaUnosObavestenja extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
