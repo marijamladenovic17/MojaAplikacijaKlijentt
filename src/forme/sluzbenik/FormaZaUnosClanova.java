@@ -27,7 +27,7 @@ public class FormaZaUnosClanova extends javax.swing.JDialog {
     public FormaZaUnosClanova(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        nit= new NitKomboClan(this);
+        nit= new NitKomboClan(this,true);
         nit.start();
     }
 

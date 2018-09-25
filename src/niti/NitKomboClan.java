@@ -18,8 +18,9 @@ public class NitKomboClan extends Thread{
     FormaZaUnosClanova fzc ;
     public static boolean kraj=true;
 
-    public NitKomboClan(FormaZaUnosClanova fzc) {
+    public NitKomboClan(FormaZaUnosClanova fzc,boolean k) {
         this.fzc = fzc;
+        kraj =k;
     }
 
     @Override
